@@ -1,0 +1,19 @@
+# INFO: convert existing keys to age:
+# ssh-to-age -i ~/.ssh/id_ed25519.pub
+# NOTE: sops updatekeys secrets/secrets.yaml if you add/remove any keys:
+# sops updatekeys secrets/secrets.yaml
+keys:
+  - &megacron age1grnnzwjs6ra7qpq5wn6y6ey6xvd3djk3j34qdjuz2lgfnqvmv47s8jrja4
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *megacron
+# NOTE: Indentation Options 0 disable indenting, -1 uses a single tab
+stores:
+  json:
+    indent: 2
+  json_binary:
+    indent: 2
+  yaml:
+    indent: 2
