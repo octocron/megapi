@@ -1,4 +1,5 @@
 # INFO: For secrets placed at system level like /etc/
+# NOTE: $(cat /run/screcrets/someAPIKey) to use a key from secrets
 {
   inputs,
   username,
@@ -13,12 +14,13 @@
     defaultSopsFile = ../secrets/secrets.yaml;
     age = {
       keyFile = "/home/${username}/.config/sops/age/keys.txt";
-      sshKeyPaths = [ ];
     };
     secrets = {
-      "tailscale/tskey-reusable" = {
-        path = "/etc/tailscale/tskey-reusable";
-        mode = "0600";
+      "passwordHash" = {
+        owner = "root";
+        group = "root";
+        mode = "0400";
+        neededForUsers = true;
       };
     };
   };

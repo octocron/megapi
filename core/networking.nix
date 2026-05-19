@@ -1,0 +1,30 @@
+{
+  config,
+  hostname,
+  lib,
+  options,
+  ...
+}:
+{
+  #-----------------NETWORKING------------------------#
+  networking = {
+    hostName = "${hostname}"; # Defines hostname.
+    networkmanager.enable = true;
+    nftables.enable = true;
+    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
+    wireless.enable = lib.mkForce false;
+
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
+
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+      ];
+      allowedUDPPorts = [
+      ];
+    };
+  };
+}

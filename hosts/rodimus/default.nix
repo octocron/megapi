@@ -53,7 +53,6 @@
     libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
     printing.enable = false;
-    tailscale.enable = true;
     tumbler.enable = true; # image/video previewer
 
     avahi = {
@@ -104,4 +103,3 @@
     ];
   };
 }
-

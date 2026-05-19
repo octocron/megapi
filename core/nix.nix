@@ -1,6 +1,5 @@
 { username, ... }:
 {
-  #-----------------NIX-OPTIMIZATIONS------------------#
   nix = {
     nrBuildUsers = 64;
     settings = {

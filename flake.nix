@@ -16,6 +16,7 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixos-anywhere.url = "github:nix-community/nixos-anywhere";
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     nix-index-database = {
@@ -35,6 +36,7 @@
       home-manager,
       megavim,
       nixpkgs,
+      nixos-anywhere,
       nixos-raspberrypi,
       nix-index-database,
       self,

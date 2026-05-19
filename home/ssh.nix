@@ -1,12 +1,21 @@
 # NOTE: ssh -T git@github.com
 # NOTE: ssh-agent is not needed when designating an IdentityFile
-{ hostname, ... }:
+{ username, ... }:
 {
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      addKeysToAgent yes
-      IdentityFile ~/.ssh/id_"${hostname}"
-    '';
+  programs = {
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      matchBlocks = {
+        "*" = {
+          addKeysToAgent = "yes";
+          identityFile = [
+            "~/.ssh/id_${username}"
+          ];
+          identitiesOnly = true;
+          user = "${username}";
+        };
+      };
+    };
   };
 }

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # cli tools
     age
@@ -29,7 +30,6 @@
     ffmpegthumbnailer # C++: lightweight video thumbnailer
     figlet # C: ascii art banner generator | http://www.figlet.org/examples.html
     findutils # C: has find xargs
-    font-awesome
     fq # Go: ↑ jq for binary
     fx # Go: ↑ JSON viewer
     gh # Go: github cli
@@ -56,7 +56,6 @@
     most # C: ↑ less
     navi # Rust: cli cheatsheet
     nix-melt # Rust: ranger-like flake.lock viewer
-    noto-fonts-color-emoji
     nurl # Rust: ↑ fetch hash from repo url
     pciutils # C: Bins (lspci, pcilmr, setpci) needed for inxi as inspection tool
     pkg-config # C:

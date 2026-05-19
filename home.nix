@@ -1,40 +1,21 @@
-{
-  pkgs,
-  username,
-  ...
-}:
+{ username, ... }:
 {
   #----------------Home Manager-----------------------------#
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
-    stateVersion = "23.11";
+    stateVersion = "26.05";
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
     file = {
-      # Place Files Inside Home Directory
       ".config/starship.toml".source = ./home/starship.toml;
       ".config/wezterm/wezterm.lua".source = ./home/wezterm.lua;
-
-      "Pictures/Wallpapers" = {
-        source = ./media/wallpapers;
-        recursive = true;
-      };
-      ".face.icon".source = ./home/hyprland/face.png;
-      ".config/face.png".source = ./home/hyprland/face.png;
-      ".emoji".source = ./home/emoji;
-
       ".config/vim" = {
         source = ./home/vim;
         recursive = true;
       };
     };
-
-    packages = with pkgs; [
-      wl-clipboard
-      ydotool
-      swappy
-      slurp
-      grim
-    ];
   };
 
   #-----------------Home-Modules-----------------------------#
@@ -44,9 +25,8 @@
 
   #-----------------Builtin Programs-------------------------#
   programs = {
-    home-manager = {
-      enable = true;
-    };
+    home-manager.enable = true;
+
     command-not-found.enable = false; # mutex to nix-index (using ShellInit script in zsh.nix)
     jq.enable = true;
     tealdeer = {

@@ -1,7 +1,8 @@
 # INFO: For secrets placed at home user level
+# NOTE: Sops cannot place ssh keys
 {
-  config,
   inputs,
+  username,
   ...
 }:
 {
@@ -11,12 +12,7 @@
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     age = {
-      keyFile = "/Users/${config.home.username}/.config/sops/age/keys.txt";
-      sshKeyPaths = [ ];
-    };
-    secrets."ssh/id_${config.networking.hostname}" = {
-      path = "/Users/${config.home.username}/.ssh/id_${config.networking.hostname}";
-      mode = "0600";
+      keyFile = "/home/${username}/.config/sops/age/keys.txt";
     };
   };
 }

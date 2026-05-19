@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   description = "NixOS configuration for Raspberry Pi 500+";
   imports = [
     ../common.nix
@@ -13,7 +14,7 @@
 
   # Boot loader
   boot = {
-    initrd.availableKernelModules = ["bcm2712-rpi5"];
+    initrd.availableKernelModules = [ "bcm2712-rpi5" ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
@@ -53,7 +54,6 @@
     libinput.enable = true; # input handler
     mullvad-vpn.package = pkgs.mullvad-vpn;
     printing.enable = false;
-    tailscale.enable = true;
     tumbler.enable = true; # image/video previewer
 
     avahi = {
@@ -68,7 +68,7 @@
 
     openssh = {
       enable = true;
-      ports = [22];
+      ports = [ 22 ];
       settings = {
         PermitRootLogin = "no"; # prevent root from SSH login
         PasswordAuthentication = true; # users can SSH using username and password
