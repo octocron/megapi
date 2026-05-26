@@ -69,6 +69,7 @@
 
     system.stateVersion = "26.05";
     systemPackages = with pkgs; [
+      inputs.megavim.packages.${pkgs.system}.default
       dd
       git
       lsblk

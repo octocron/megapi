@@ -115,7 +115,6 @@
           };
           modules = [
             ./hosts/superion/default.nix
-            megavim.nixosModules.default
             sops-nix.nixosModules.sops
           ];
           disabledModules = [ ./home/ssh.nix ];
@@ -126,7 +125,6 @@
           };
           modules = [
             ./hosts/whirl/default.nix
-            megavim.nixosModules.default
             sops-nix.nixosModules.sops
           ];
         };
@@ -138,6 +136,7 @@
           modules = [
             ./hosts/primus/default.nix
             disko.nixosModules.disko
+            megavim.nixosModules.default
             sops-nix.nixosModules.sops
           ];
         };
