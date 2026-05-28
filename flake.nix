@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    megavim.url = "git+ssh://gitlab.com/megacron/megavim?ref=nixvim";
+    megavim.url = "gitlab:megacron/megavim?ref=nixvim";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -136,6 +136,7 @@
           modules = [
             ./hosts/primus/default.nix
             disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
             megavim.nixosModules.default
             sops-nix.nixosModules.sops
           ];
@@ -148,6 +149,7 @@
           modules = [
             ./hosts/rodimus/default.nix
             disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
           ];
         };

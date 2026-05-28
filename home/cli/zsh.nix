@@ -1,40 +1,45 @@
 {
   config,
+  hostname,
   pkgs,
   ...
-}: {
+}:
+{
   programs = {
-    # Configure zsh
     zsh = {
       enable = true;
       autocd = true;
       enableCompletion = true;
       autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
       historySubstringSearch.enable = true;
       history = {
+        extended = false; # INFO: false means no time stamps
+        expireDuplicatesFirst = true;
         save = 10000;
         size = 10000;
-        ignoreDups = true;
+        share = true;
+        saveNoDups = true;
+        ignoreAllDups = true;
         ignoreSpace = true;
-        expireDuplicatesFirst = true;
+        ignorePatterns = [
+          "bat *"
+          "cat *"
+          "clear *"
+          "exit"
+          "git commit *"
+          "ga"
+          "gs"
+          "gc *"
+          "ls *"
+          "la *"
+          "man *"
+          "rm *"
+          "which *"
+        ];
       };
 
-      plugins = [
-        {
-          name = "fast-syntax-highlighting";
-          src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
-        }
-        {
-          name = "zsh-nix-shell";
-          file = "nix-shell.plugin.zsh";
-          src = pkgs.fetchFromGitHub {
-            owner = "chisui";
-            repo = "zsh-nix-shell";
-            rev = "v0.5.0";
-            sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
-          };
-        }
-      ];
+      dotDir = "${config.xdg.configHome}/zsh";
 
       shellAliases = {
         ".." = "cd ..";
@@ -42,21 +47,24 @@
         "...." = "././..";
         sv = "sudo vim";
         #-------------nix---------------------------------------------------->>>
-        nhb = "nh boot --flake ~/projects/megaos/#desktop";
+        nhb = "nh boot --flake ~/projects/megapi/#${hostname}";
         nhg = "nh os info";
         nhr = "nh os repl";
-        nhs = "nh os switch --flake ~/projects/megaos/#desktop";
-        nhsu = "nh os switch --flake ~/projects/megaos/#desktop --ask";
-        nht = "nh os test --flake ~/projects/megaos/#desktop";
-        nrb = "sudo nixos-rebuild boot --flake ~/projects/megaos/#desktop";
-        nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megaos/#desktop | bat";
-        nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop -p";
-        nrs = "sudo nixos-rebuild switch --flake ~/projects/megaos/#desktop";
-        nrt = "sudo nixos-rebuild test --flake ~/projects/megaos/#desktop";
+        nhs = "nh os switch --flake ~/projects/megapi/#${hostname}";
+        nhsu = "nh os switch --flake ~/projects/megapi/#${hostname} --ask";
+        nht = "nh os test --flake ~/projects/megapi/#${hostname}";
+        nrb = "sudo nixos-rebuild boot --flake ~/projects/megapi/#${hostname}";
+        nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megapi/#${hostname} | bat";
+        nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megapi/#${hostname} -p";
+        nrs = "sudo nixos-rebuild switch --flake ~/projects/megapi/#${hostname}";
+        nrt = "sudo nixos-rebuild test --flake ~/projects/megapi/#${hostname}";
         ncg = "nix-collect-garbage --delete-old";
+        nlgh = "nix profile history --profile /nix/var/nix/profiles/system-profiles/hyprland | bat";
+        nlgn = "nix profile history --profile /nix/var/nix/profiles/system-profiles/niri | bat";
+        ncgh = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system-profiles/hyprland --older-than 30d";
+        ncgn = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system-profiles/niri --older-than 30d";
         #-------------aliases------------------------------------------------>>>
-        a = "ansible";
-        ap = "ansible-playbook";
+        bios = "sudo systemctl reboot --firmware";
         d3 = "cd ~/projects/hugo/d3c3p7/";
         ftldr = "tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,70% | xargs tldr";
         grep = "grep --color";
@@ -95,27 +103,22 @@
         gsl = "git stash list";
         gsf = "git stash push --";
         gsp = "git stash pop";
-        #-------------copy--------------------------------------------------->>>
-        pbcopy = "/mnt/c/Windows/System32/clip.exe";
-        pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
-        explorer = "/mnt/c/Windows/explorer.exe";
       };
 
       envExtra = ''
         #-------------starship------------------------------------------->>>
-        LFILE="/etc/*-release"
-        MFILE="/System/Library/CoreServices/SystemVersion.plist"
-        if [[ -f $LFILE ]]; then
-          _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
-        elif [[ -f $MFILE ]]; then
+        if [[ -f /etc/os-release ]]; then
+          _distro=$(awk -F= '/^ID=/{print tolower($2)}' /etc/os-release)
+
+        elif [[ -f /System/Library/CoreServices/SystemVersion.plist ]]; then
           _distro="macos"
 
-        #-------------determine-mac-model-------------------------------->>>
-          _device=$(system_profiler SPHardwareDataType | awk '/Model Name/ {print $3,$4,$5,$6,$7}')
+          #-------------determine-mac-model-------------------------------->>>
+          _device=$(sysctl -n hw.model 2>/dev/null)
 
           case $_device in
-            *MacBook*)     DEVICE="󰌢";;
-            *)             DEVICE="";;
+            *MacBook*) DEVICE="󰌢" ;;
+            *) DEVICE="" ;;
           esac
         fi
 
@@ -153,27 +156,12 @@
       '';
 
       initContent = ''
-        if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
-          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-        fi
-        if [ -e "${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
-          . "${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh"
-        fi
-        if [ -e /run/current-system/sw/etc/profile.d/nix-daemon.sh ]; then
-        . /run/current-system/sw/etc/profile.d/nix-daemon.sh
-        fi
         # fixes duplication of commands when using tab-completion
         source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
         export LANG=C.UTF-8
-        export SOPS_AGE_KEY_FILE=${config.home.homeDirectory}/.config/sops/age/keys.txt
-      '';
-      profileExtra = ''
-        #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-        #  exec Hyprland
-        #fi
       '';
 
-      sessionVariables = {};
+      sessionVariables = { };
     };
 
     #-------------zsh plugins---------------------------------------------------->>>
@@ -194,8 +182,8 @@
     eza = {
       enable = true;
       enableZshIntegration = true;
-      git = true;
       icons = "auto";
+      git = true;
     };
 
     # fzf config
@@ -210,6 +198,12 @@
       enableZshIntegration = true;
     };
 
+    # theFuck upgrade
+    pay-respects = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     # starship >>> config/starship.toml
     starship = {
       enable = true;
@@ -220,7 +214,7 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = ["--cmd cd"];
+      options = [ "--cmd cd" ];
     };
   };
 }

@@ -9,10 +9,10 @@
       EDITOR = "nvim";
     };
     file = {
-      ".config/starship.toml".source = ./home/starship.toml;
-      ".config/wezterm/wezterm.lua".source = ./home/wezterm.lua;
+      ".config/starship.toml".source = ./home/cli/starship.toml;
+      ".config/wezterm/wezterm.lua".source = ./home/cli/wezterm.lua;
       ".config/vim" = {
-        source = ./home/vim;
+        source = ./home/cli/vim;
         recursive = true;
       };
     };
@@ -26,17 +26,8 @@
   #-----------------Builtin Programs-------------------------#
   programs = {
     home-manager.enable = true;
-
     command-not-found.enable = false; # mutex to nix-index (using ShellInit script in zsh.nix)
     jq.enable = true;
-    tealdeer = {
-      enable = true;
-      settings = {
-        updates = {
-          auto_update = true;
-        };
-      };
-    };
   };
 
   #----------------Editor Config-----------------------------#

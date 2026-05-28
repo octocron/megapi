@@ -5,7 +5,6 @@ _: {
     ./bat.nix
     ./cava.nix
     ./git.nix
-    ./kitty.nix
     ./nnn.nix
     ./packages.nix
     ./sops.nix

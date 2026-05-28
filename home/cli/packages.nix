@@ -55,6 +55,7 @@
     mosh # C++:
     most # C: ↑ less
     navi # Rust: cli cheatsheet
+    nebula
     nix-melt # Rust: ranger-like flake.lock viewer
     nurl # Rust: ↑ fetch hash from repo url
     pciutils # C: Bins (lspci, pcilmr, setpci) needed for inxi as inspection tool
