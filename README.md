@@ -87,7 +87,7 @@ inputs = {
 
 > do not forget to include in your outputs!
 
-2. create a hardware.nix next to your disko.nix
+2. create a hardware.nix for each host folder.
 
 ```nix
 { inputs, ... }:
@@ -97,4 +97,13 @@ inputs = {
     raspberry-pi-5.page-size-16k
   ];
 }
+```
+
+3. Make sure ssh and sops is not activated for initial build as keys.txt and ssh keys are not in place.
+4. Run disko to install your personal flake.
+
+```zsh
+sudo nix run github:nix-community/disko#disko-install -- \
+  --flake "gitlab:megacron/megapi#primus" \
+  --disk main /dev/nvme0n1
 ```
