@@ -7,8 +7,8 @@ _: {
     ./git.nix
     ./nnn.nix
     ./packages.nix
-    ./sops.nix
-    ./ssh.nix
+    #./sops.nix
+    #./ssh.nix
     ./tealdeer.nix
     ./tmux.nix
     ./yazi.nix
