@@ -77,7 +77,6 @@
           };
           modules = [
             ./hosts/ironhide/default.nix
-            megavim.nixosModules.default
             sops-nix.nixosModules.sops
           ];
         };
@@ -90,7 +89,6 @@
             ./hosts/lockdown/default.nix
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
-            megavim.nixosModules.default
             nix-index-database.nixosModules.nix-index
             sops-nix.nixosModules.sops
             {
@@ -137,8 +135,21 @@
             ./hosts/primus/default.nix
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
-            megavim.nixosModules.default
             sops-nix.nixosModules.sops
+            {
+              home-manager = {
+                extraSpecialArgs = personalArgs // {
+                  hostname = "lockdown";
+                };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                users.${username}.imports = [
+                  ./home.nix
+                  sops-nix.homeManagerModules.sops
+                ];
+              };
+            }
           ];
         };
         # INFO: Pi5 Headless with NVMe
