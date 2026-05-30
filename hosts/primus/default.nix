@@ -8,6 +8,7 @@
     ../../users/megacron.nix
   ];
 
+  boot.loader.raspberry-pi.bootloader = "kernel";
   system.stateVersion = "26.05";
   environment = {
     systemPackages = with pkgs; [
