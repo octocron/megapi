@@ -2,11 +2,11 @@
 {
   description = "NixOS Headless Raspberry Pi5 using NVME";
   imports = [
-    ./core
+    ../../core
     ./disko.nix
     ./hardware.nix
-    ../home/cli
-    ../users/megacron.nix
+    ../../home/cli
+    ../../users/megacron.nix
   ];
 
   environment = {
