@@ -10,7 +10,7 @@
     };
     file = {
       ".config/starship.toml".source = ./home/cli/starship.toml;
-      ".config/wezterm/wezterm.lua".source = ./home/cli/wezterm.lua;
+      ".config/wezterm/wezterm.lua".source = ./home/gui/wezterm.lua;
       ".config/vim" = {
         source = ./home/cli/vim;
         recursive = true;
