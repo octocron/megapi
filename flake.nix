@@ -58,6 +58,7 @@
         inherit system;
         inherit theTimezone;
         inherit username;
+        inherit (inputs) nixos-raspberrypi;
       };
       personalArgs = {
         inherit gitUsername;
