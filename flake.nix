@@ -129,6 +129,7 @@
         };
         # INFO: Pi5 Headless with NVMe
         primus = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
           specialArgs = commonSpecialArgs // {
             hostname = "primus";
           };
@@ -140,7 +141,7 @@
             {
               home-manager = {
                 extraSpecialArgs = personalArgs // {
-                  hostname = "lockdown";
+                  hostname = "primus";
                 };
                 useGlobalPkgs = true;
                 useUserPackages = true;
