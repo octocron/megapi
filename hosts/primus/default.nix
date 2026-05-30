@@ -25,6 +25,9 @@
     hostName = "primus";
   };
 
+  #---------------------PROGRAMS-------------------------#
+  programs.zsh.enable = true;
+
   #-----------------------SERVICES-----------------------#
   services = {
     fstrim.enable = true; # ssd optimizer
