@@ -5,7 +5,6 @@
     ../../core
     ./disko.nix
     ./hardware.nix
-    ../../home/cli
     ../../users/megacron.nix
   ];
 
