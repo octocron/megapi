@@ -14,7 +14,7 @@
   inputs = {
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixos-raspberrypi/nixpkgs";
     };
 
     home-manager = {
@@ -27,10 +27,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-anywhere.url = "github:nix-community/nixos-anywhere";
-    nixos-raspberrypi = {
-      url = "github:nvmd/nixos-raspberrypi/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
