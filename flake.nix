@@ -17,7 +17,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-anywhere.url = "github:nix-community/nixos-anywhere";
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+    nixos-raspberrypi = {
+      url = "github:nvmd/nixos-raspberrypi/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
