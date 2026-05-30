@@ -9,8 +9,8 @@
     ../../users/megacron.nix
   ];
 
+  system.stateVersion = "26.05";
   environment = {
-    system.stateVersion = "26.05";
     systemPackages = with pkgs; [
       inputs.megavim.packages.${pkgs.system}.default
       dd
