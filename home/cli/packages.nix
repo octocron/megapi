@@ -20,7 +20,6 @@
     curlie # Go: frontend to curl that add use of httpie
     ctop # Go: htop for containers
     diff-so-fancy # Perl: ↑ diff
-    dogdns # Rust: ↑ dig
     dust # Rust: ↑ du
     duf # Go: ↑ df
     exiftool # Perl: ↑ exif
