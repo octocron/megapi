@@ -138,7 +138,7 @@
           ];
         };
         # INFO: Pi5 Headless with NVMe
-        primus = nixpkgs.lib.nixosSystem {
+        primus = inputs.nixos-raspberrypi.lib.nixosSystem {
           system = "aarch64-linux";
           specialArgs = commonSpecialArgs // {
             hostname = "primus";
