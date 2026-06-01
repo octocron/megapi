@@ -6,7 +6,6 @@
 {
   description = "NixOS Headless Raspberry Pi5 using NVME";
   imports = [
-    ../common.nix
     ./disko.nix
     ../users/megacron/default.nix
     inputs.nixos-hardware.nixosModules.raspberry-pi-5

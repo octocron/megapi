@@ -6,7 +6,6 @@
 {
   description = "NixOS configuration for Raspberry Pi 500+";
   imports = [
-    ../common.nix
     ./disko.nix
     ../users/megacron/default.nix
     inputs.nixos-hardware.nixosModules.raspberry-pi-5

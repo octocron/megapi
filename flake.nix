@@ -19,7 +19,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixos-raspberrypi/nixpkgs";
     };
 
     megavim.url = "gitlab:megacron/megavim?ref=nixvim";
