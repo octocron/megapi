@@ -3,6 +3,12 @@
   #-----------------------SECURITY-----------------------#
   security = {
     rtkit.enable = true;
+
+    sudo = {
+      enable = false;
+      execWheelOnly = false;
+    };
+
     doas = {
       enable = true;
       extraRules = [
@@ -32,9 +38,5 @@
         })
       '';
     };
-
-    sudo.extraConfig = ''
-      Defaults      timestamp_timeout=1800
-    '';
   };
 }
