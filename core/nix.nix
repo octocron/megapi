@@ -1,7 +1,7 @@
 { username, ... }:
 {
   nix = {
-    nrBuildUsers = 64;
+    nrBuildUsers = 4;
     settings = {
       cores = 2; # 0 means all available cores
       warn-dirty = false;
