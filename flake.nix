@@ -19,7 +19,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixos-raspberrypi/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     megavim.url = "gitlab:megacron/megavim?ref=nixvim";
@@ -54,6 +54,7 @@
       ...
     }:
     let
+      inherit (self) outputs;
       system = "aarch64-linux";
       username = "megacron";
       gitUsername = "megacron";
@@ -61,11 +62,12 @@
       theLocale = "en_US.UTF-8";
       theTimezone = "America/New_York";
       commonSpecialArgs = {
+        inherit inputs;
+        inherit outputs;
+        inherit system;
         inherit gitEmail;
         inherit gitUsername;
-        inherit inputs;
         inherit theLocale;
-        inherit system;
         inherit theTimezone;
         inherit username;
         inherit (inputs) nixos-raspberrypi;
