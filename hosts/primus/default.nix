@@ -21,7 +21,7 @@
   system.stateVersion = "26.05";
   environment = {
     systemPackages = with pkgs; [
-      inputs.megavim.packages.${pkgs.system}.default
+      #inputs.megavim.packages.${pkgs.system}.default
       coreutils
       git
     ];
