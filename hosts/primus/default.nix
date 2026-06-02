@@ -17,7 +17,7 @@
   environment = {
     systemPackages = with pkgs; [
       inputs.megavim.packages.${pkgs.system}.default
-      dd
+      coreutils
       git
       lsblk
     ];
