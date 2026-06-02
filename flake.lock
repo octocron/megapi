@@ -19,7 +19,6 @@
     "disko": {
       "inputs": {
         "nixpkgs": [
-          "nixos-raspberrypi",
           "nixpkgs"
         ]
       },
