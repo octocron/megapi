@@ -19,7 +19,6 @@
       inputs.megavim.packages.${pkgs.system}.default
       coreutils
       git
-      lsblk
     ];
   };
 
