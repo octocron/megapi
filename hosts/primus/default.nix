@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   # INFO: NixOS Headless Raspberry Pi5 using NVME
   imports = [
