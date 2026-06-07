@@ -12,10 +12,13 @@
     ../../users/megacron.nix
   ];
 
-  boot.loader = {
-    grub.enable = false;
-    generic-extlinux-compatible.enable = false;
-    raspberry-pi.bootloader = "kernel";
+  boot = {
+    tmp.useTmpfs = true;
+    loader = {
+      grub.enable = false;
+      generic-extlinux-compatible.enable = false;
+      raspberry-pi.bootloader = "kernel";
+    };
   };
 
   system.stateVersion = "26.05";

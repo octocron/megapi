@@ -1,7 +1,7 @@
 { username, ... }:
 {
   nix = {
-    nrBuildUsers = 4;
+    nrBuildUsers = 2;
     settings = {
       cores = 2; # 0 means all available cores
       warn-dirty = false;
@@ -13,6 +13,8 @@
       trusted-users = [
         "root"
         "@wheel"
+        "${username}"
+        "nixos"
       ];
       allowed-users = [
         "root"
@@ -24,10 +26,8 @@
         "nix-command"
       ];
 
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-      extra-substituters = [ "https://nixos-raspberrypi.cachix.org" ];
-      extra-trusted-public-keys = [
+      substituters = [ "https://nixos-raspberrypi.cachix.org" ];
+      trusted-public-keys = [
         "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
       ];
     };
