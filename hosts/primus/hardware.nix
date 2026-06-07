@@ -7,5 +7,6 @@
     nixosModules.raspberry-pi-5.display-vc4
     nixosModules.raspberry-pi-5.page-size-16k
     nixosModules.nixpkgs-rpi
+    ./pi5.nix
   ];
 }
