@@ -54,7 +54,6 @@
       ...
     }:
     let
-      inherit (self) outputs;
       system = "aarch64-linux";
       username = "megacron";
       gitUsername = "megacron";
@@ -62,20 +61,16 @@
       theLocale = "en_US.UTF-8";
       theTimezone = "America/New_York";
       commonSpecialArgs = {
-        inherit inputs;
-        inherit outputs;
         inherit system;
         inherit gitEmail;
         inherit gitUsername;
         inherit theLocale;
         inherit theTimezone;
         inherit username;
-        inherit (inputs) nixos-raspberrypi;
       };
       personalArgs = {
         inherit gitUsername;
         inherit gitEmail;
-        inherit inputs;
         inherit system;
         inherit username;
       };
@@ -85,9 +80,12 @@
       nixosConfigurations = {
         # INFO: Pi400 Niri
         ironhide = nixpkgs.lib.nixosSystem {
-          specialArgs = commonSpecialArgs // {
-            hostname = "ironhide";
-          };
+          specialArgs =
+            inputs
+            // commonSpecialArgs
+            // {
+              hostname = "ironhide";
+            };
           modules = [
             ./hosts/ironhide/default.nix
             sops-nix.nixosModules.sops
@@ -95,9 +93,12 @@
         };
         # INFO: Pi500+ Niri
         lockdown = nixpkgs.lib.nixosSystem {
-          specialArgs = commonSpecialArgs // {
-            hostname = "lockdown";
-          };
+          specialArgs =
+            inputs
+            // commonSpecialArgs
+            // {
+              hostname = "lockdown";
+            };
           modules = [
             ./hosts/lockdown/default.nix
             disko.nixosModules.disko
@@ -106,9 +107,12 @@
             sops-nix.nixosModules.sops
             {
               home-manager = {
-                extraSpecialArgs = personalArgs // {
-                  hostname = "lockdown";
-                };
+                extraSpecialArgs =
+                  inputs
+                  // personalArgs
+                  // {
+                    hostname = "lockdown";
+                  };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "backup";
@@ -121,9 +125,12 @@
           ];
         };
         superion = nixpkgs.lib.nixosSystem {
-          specialArgs = commonSpecialArgs // {
-            hostname = "superion";
-          };
+          specialArgs =
+            inputs
+            // commonSpecialArgs
+            // {
+              hostname = "superion";
+            };
           modules = [
             ./hosts/superion/default.nix
             sops-nix.nixosModules.sops
@@ -131,9 +138,12 @@
           disabledModules = [ ./home/ssh.nix ];
         };
         unicron = nixpkgs.lib.nixosSystem {
-          specialArgs = commonSpecialArgs // {
-            hostname = "unicron";
-          };
+          specialArgs =
+            inputs
+            // commonSpecialArgs
+            // {
+              hostname = "unicron";
+            };
           modules = [
             ./hosts/whirl/default.nix
             sops-nix.nixosModules.sops
@@ -142,18 +152,24 @@
         # INFO: Pi5 Headless with NVMe
         primus = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          specialArgs = commonSpecialArgs // {
-            hostname = "primus";
-          };
+          specialArgs =
+            inputs
+            // commonSpecialArgs
+            // {
+              hostname = "primus";
+            };
           modules = [
             ./hosts/primus/default.nix
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             {
               home-manager = {
-                extraSpecialArgs = personalArgs // {
-                  hostname = "primus";
-                };
+                extraSpecialArgs =
+                  inputs
+                  // personalArgs
+                  // {
+                    hostname = "primus";
+                  };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "backup";
@@ -167,14 +183,34 @@
         };
         # INFO: Pi5 Headless with NVMe
         rodimus = nixpkgs.lib.nixosSystem {
-          specialArgs = commonSpecialArgs // {
-            hostname = "rodimus";
-          };
+          specialArgs =
+            inputs
+            // commonSpecialArgs
+            // {
+              hostname = "rodimus";
+            };
           modules = [
             ./hosts/rodimus/default.nix
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            {
+              home-manager = {
+                extraSpecialArgs =
+                  inputs
+                  // personalArgs
+                  // {
+                    hostname = "rodimus";
+                  };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                users.${username}.imports = [
+                  ./home.nix
+                  sops-nix.homeManagerModules.sops
+                ];
+              };
+            }
           ];
         };
       };
