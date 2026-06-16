@@ -1,12 +1,10 @@
-{ inputs, ... }:
+{ nixos-raspberrypi, ... }:
 {
-  imports = with inputs.nixos-raspberrypi; [
-    lib.inject-overlays
-    nixosModules.raspberry-pi-5.base
-    #nixosModules.raspberry-pi-5.bluetooth
-    #nixosModules.raspberry-pi-5.display-vc4
-    nixosModules.raspberry-pi-5.page-size-16k
-    nixosModules.nixpkgs-rpi
+  imports = [
+    nixos-raspberrypi.lib.inject-overlays
+    nixos-raspberrypi.nixosModules.raspberry-pi-5.base
+    nixos-raspberrypi.nixosModules.raspberry-pi-5.page-size-16k
+    nixos-raspberrypi.nixosModules.nixpkgs-rpi
     ./pi5.nix
   ];
 }
