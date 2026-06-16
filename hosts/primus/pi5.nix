@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-{
+_: {
   hardware.raspberry-pi.config = {
     all = {
       options = {

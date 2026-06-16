@@ -147,7 +147,6 @@
           };
           modules = [
             ./hosts/primus/default.nix
-            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             {
