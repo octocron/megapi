@@ -164,12 +164,9 @@
             sops-nix.nixosModules.sops
             {
               home-manager = {
-                extraSpecialArgs =
-                  inputs
-                  // personalArgs
-                  // {
-                    hostname = "primus";
-                  };
+                extraSpecialArgs = personalArgs // {
+                  hostname = "primus";
+                };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "backup";
