@@ -7,7 +7,6 @@
   # INFO: NixOS Headless Raspberry Pi5 using NVME
   imports = [
     ../../core
-    ./disko.nix
     ./hardware.nix
     ../../users/megacron.nix
   ];
