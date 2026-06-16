@@ -1,57 +1,10 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
-{
+_: {
   # INFO: NixOS Headless Raspberry Pi5 using NVME
+  system.stateVersion = "26.05";
   imports = [
+    ../../boot/pi5.nix
     ../../core
     ./hardware.nix
     ../../users/megacron.nix
   ];
-
-  boot = {
-    tmp.useTmpfs = true;
-    loader = {
-      grub.enable = false;
-      generic-extlinux-compatible.enable = false;
-      raspberry-pi.bootloader = "kernel";
-    };
-  };
-
-  system.stateVersion = "26.05";
-  environment = {
-    systemPackages = with pkgs; [
-      #inputs.megavim.packages.${pkgs.system}.default
-      coreutils
-      git
-    ];
-  };
-
-  #---------------------NETWORKING-----------------------#
-  networking = {
-    wireless.enable = true;
-    networkmanager.enable = true;
-    hostName = "primus";
-  };
-
-  #---------------------PROGRAMS-------------------------#
-  programs.zsh.enable = true;
-
-  #-----------------------SERVICES-----------------------#
-  services = {
-    fstrim.enable = true; # ssd optimizer
-    printing.enable = false;
-
-    openssh = {
-      enable = true;
-      ports = [ 22 ];
-      settings = {
-        PermitRootLogin = "no"; # prevent root from SSH login
-        PasswordAuthentication = true; # users can SSH using username and password
-        KbdInteractiveAuthentication = true; # allow keyboard based auth
-      };
-    };
-  };
 }

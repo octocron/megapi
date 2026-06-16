@@ -1,7 +1,6 @@
 {
   hostname,
   lib,
-  options,
   ...
 }:
 {
@@ -10,7 +9,6 @@
     hostName = "${hostname}"; # Defines hostname.
     networkmanager.enable = true;
     nftables.enable = true;
-    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
     wireless.enable = lib.mkForce false;
 
     nameservers = [
@@ -21,6 +19,7 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
+        22
       ];
       allowedUDPPorts = [
       ];
