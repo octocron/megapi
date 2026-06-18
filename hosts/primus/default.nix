@@ -4,7 +4,8 @@ _: {
   imports = [
     ../../boot/pi5.nix
     ../../core
-    ./hardware.nix
     ../../users/megacron.nix
+    ./disko.nix
+    ./hardware.nix
   ];
 }
