@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -9,7 +10,6 @@
     historyLimit = 5000;
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
-      fingers
       jump
       sensible
       vim-tmux-navigator
