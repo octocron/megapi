@@ -13,29 +13,21 @@
     duf # Go: ↑ df
     exiftool # Perl: ↑ exif
     fd # Rust: ↑ find
-    ffmpeg # C:
-    ffmpegthumbnailer # C++: lightweight video thumbnailer
     gnupg # C: gpg **
-    go # Assembly: garbage collector | C++: frontend
     gping # Rust: ↑ ping
     inxi # Bash: ↑ system info
     just # ↑ make
     lazydocker # Go: full docker mgmt app
-    lua # C:
     man-db # C:
     most # C: ↑ less
     nebula
-    nix-melt # Rust: ranger-like flake.lock viewer
     nurl # Rust: ↑ fetch hash from repo url
     pciutils # C: Bins (lspci, pcilmr, setpci) needed for inxi as inspection tool
-    pkg-config # C:
     procs # Rust: ↑ ps
     rage # Rust: ↑ age
     ripgrep # Rust: ↑ grep
-    ripgrep-all # Rust: ↑ extend rg to search pdf, docx, etc
     rsync # C: inc file xfer
     rustic # Rust: deduplicated backup
-    rustup # Rust: rust toolchain
     scc # Go: code count
     sd # Rust: ↑ sed
     sops
