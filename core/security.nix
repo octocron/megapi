@@ -5,23 +5,8 @@
     rtkit.enable = true;
 
     sudo = {
-      enable = false;
-      execWheelOnly = false;
-    };
-
-    doas = {
       enable = true;
-      extraRules = [
-        {
-          users = [ "${username}" ];
-          keepEnv = true;
-          noPass = false;
-        }
-        {
-          groups = [ "wheel" ];
-          noPass = false; # Allows passwordless execution
-        }
-      ];
+      execWheelOnly = true;
     };
 
     polkit = {
