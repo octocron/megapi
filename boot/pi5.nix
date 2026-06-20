@@ -6,7 +6,11 @@ _: {
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = false;
-      raspberry-pi.bootloader = "kernel";
+      #raspberry-pi.bootloader = "kernel";
+      raspberryPi = {
+        enable = true;
+        version = 5;
+      };
     };
   };
 
