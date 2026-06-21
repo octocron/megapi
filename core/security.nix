@@ -1,5 +1,4 @@
-{ username, ... }:
-{
+_: {
   #-----------------------SECURITY-----------------------#
   security = {
     rtkit.enable = true;
