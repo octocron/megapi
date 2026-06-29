@@ -6,6 +6,10 @@
       #inputs.megavim.packages.${pkgs.system}.default
       coreutils
       git
+      pciutils
+      raspberrypi-eeprom
+      usbutils
+      util-linux
     ];
   };
 }
