@@ -32,7 +32,7 @@ in
   disko.devices = {
     disk.nvme = {
       type = "disk";
-      device = "/dev/nvme0n1";
+      device = "/dev/disk/by-id/nvme-WD_Blue_SN570_500GB_23180A802928";
       content = {
         type = "gpt";
         partitions = {
