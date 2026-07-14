@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -7,7 +6,7 @@
 {
   console = {
     earlySetup = true;
-    font = lib.mkDefault "Maple Mono";
+    font = lib.mkDefault pkgs.maple-mono.opentype;
     colors = lib.mkDefault [
       "ff9900"
       "0066cc"
