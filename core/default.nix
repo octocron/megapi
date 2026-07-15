@@ -1,7 +1,6 @@
 _: {
   #----------Home Configurations----------#
   imports = [
-    ./console.nix
     ./environment.nix
     ./fonts.nix
     ./hardware.nix

@@ -36,7 +36,10 @@
       allowedUDPPorts = [
       ];
 
-      interfaces.end0.allowedTCPPorts = [ 22 ];
+      interfaces.end0.allowedTCPPorts = [
+        22
+        5000
+      ];
     };
   };
 }

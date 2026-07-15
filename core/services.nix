@@ -7,6 +7,12 @@ _: {
     timesyncd.enable = true;
     udev.enable = true;
 
+    nix-serve = {
+      enable = true;
+      port = 5000;
+      secretKeyFile = "/var/lib/nix-serve/cache-priv-key.pem";
+    };
+
     openssh = {
       enable = true;
       ports = [ 22 ];
