@@ -17,6 +17,7 @@
           "docker"
           "libvirtd"
           "networkmanager"
+          "video"
           "wheel"
         ];
         #hashedPasswordFile = config.sops.secrets.passwordHash.path;

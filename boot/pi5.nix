@@ -13,6 +13,11 @@ _: {
     };
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  };
+
   swapDevices = [
     {
       device = "/swapfile";

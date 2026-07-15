@@ -11,6 +11,9 @@ _: {
         MemoryMax = "90%";
         OOMScoreAdjust = 500;
       };
+
+      systemd-networkd.stopIfChanged = false;
+      systemd-resolved.stopIfChanged = false;
     };
   };
 }
