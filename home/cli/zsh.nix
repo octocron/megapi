@@ -50,9 +50,9 @@
         nhb = "nh boot --flake ~/projects/megapi#${hostname}";
         nhg = "nh os info";
         nhr = "nh os repl";
-        nhs = "nh os switch --flake ~/projects/megapi#${hostname}";
-        nhsu = "nh os switch --flake ~/projects/megapi#${hostname} --ask";
-        nht = "nh os test --flake ~/projects/megapi#${hostname}";
+        nhs = "nh os switch -- --flake ~/projects/megapi#${hostname}";
+        nhsu = "nh os switch -- --flake ~/projects/megapi#${hostname} --ask";
+        nht = "nh os test -- --flake ~/projects/megapi#${hostname}";
         nrb = "sudo nixos-rebuild boot --flake ~/projects/megapi#${hostname}";
         nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megapi#${hostname} | bat";
         nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megapi#${hostname} -p";
