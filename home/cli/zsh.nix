@@ -47,28 +47,23 @@
         "...." = "././..";
         sv = "sudo vim";
         #-------------nix---------------------------------------------------->>>
-        nhb = "nh boot --flake ~/projects/megapi/#${hostname}";
+        nhb = "nh boot --flake ~/projects/megapi#${hostname}";
         nhg = "nh os info";
         nhr = "nh os repl";
-        nhs = "nh os switch --flake ~/projects/megapi/#${hostname}";
-        nhsu = "nh os switch --flake ~/projects/megapi/#${hostname} --ask";
-        nht = "nh os test --flake ~/projects/megapi/#${hostname}";
-        nrb = "sudo nixos-rebuild boot --flake ~/projects/megapi/#${hostname}";
-        nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megapi/#${hostname} | bat";
-        nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megapi/#${hostname} -p";
-        nrs = "sudo nixos-rebuild switch --flake ~/projects/megapi/#${hostname}";
-        nrt = "sudo nixos-rebuild test --flake ~/projects/megapi/#${hostname}";
+        nhs = "nh os switch --flake ~/projects/megapi#${hostname}";
+        nhsu = "nh os switch --flake ~/projects/megapi#${hostname} --ask";
+        nht = "nh os test --flake ~/projects/megapi#${hostname}";
+        nrb = "sudo nixos-rebuild boot --flake ~/projects/megapi#${hostname}";
+        nrg = "sudo nixos-rebuild list-generations --flake ~/projects/megapi#${hostname} | bat";
+        nrp = "nom sudo nixos-rebuild switch --flake ~/projects/megapi#${hostname} -p";
+        nrs = "sudo nixos-rebuild switch --flake ~/projects/megapi#${hostname}";
+        nrt = "sudo nixos-rebuild test --flake ~/projects/megapi#${hostname}";
         ncg = "nix-collect-garbage --delete-old";
-        nlgh = "nix profile history --profile /nix/var/nix/profiles/system-profiles/hyprland | bat";
-        nlgn = "nix profile history --profile /nix/var/nix/profiles/system-profiles/niri | bat";
-        ncgh = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system-profiles/hyprland --older-than 30d";
-        ncgn = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system-profiles/niri --older-than 30d";
         #-------------aliases------------------------------------------------>>>
         bios = "sudo systemctl reboot --firmware";
         d3 = "cd ~/projects/hugo/d3c3p7/";
         ftldr = "tldr --list | fzf --preview 'tldr {1} --color=always' --preview-window=right,70% | xargs tldr";
         grep = "grep --color";
-        kf = "kitty +list-fonts";
         kg = "killall gpg-agent || true; gpg-agent --daemon";
         la = "eza --group-directories-first -la";
         ls = "eza --icons --group-directories-first";
@@ -77,7 +72,6 @@
         lg = "eza -lh --git";
         mostcli = "history | awk '{print $2}' | sort | uniq -c | sort -nr | head -10";
         reload = "source ${config.home.homeDirectory}/.zshrc";
-        #reload ="exec $SHELL -l";
         show_path = "echo $PATH | tr ':' '\n'";
         week = "date +%V";
         wttr = "curl wttr.in";

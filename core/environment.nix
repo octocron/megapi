@@ -6,6 +6,7 @@
       #inputs.megavim.packages.${pkgs.system}.default
       coreutils
       git
+      nebula
       pciutils
       raspberrypi-eeprom
       usbutils
