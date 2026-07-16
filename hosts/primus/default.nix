@@ -8,5 +8,6 @@ _: {
     ../../core
     ../../users/megacron.nix
     ../../app/nebula.nix
+    ../../app/technitium.nix
   ];
 }
