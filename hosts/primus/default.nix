@@ -7,5 +7,6 @@ _: {
     ../../boot/pi5.nix
     ../../core
     ../../users/megacron.nix
+    ../../app/nebula.nix
   ];
 }
