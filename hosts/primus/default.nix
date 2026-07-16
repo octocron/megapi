@@ -4,10 +4,10 @@ _: {
   imports = [
     ./hardware.nix
     ./disko.nix
+    ./nebula.nix
     ../../boot/pi5.nix
     ../../core
     ../../users/megacron.nix
-    ../../app/nebula.nix
     ../../app/technitium.nix
   ];
 }

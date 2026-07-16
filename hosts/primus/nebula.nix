@@ -39,6 +39,24 @@
           proto = "tcp";
           groups = [ "admin" ];
         }
+        {
+          # Allow dns panel for admins
+          port = 5380;
+          proto = "tcp";
+          groups = [ "admin" ];
+        }
+        {
+          # Allow DNS over HTTPS
+          port = 53443;
+          proto = "tcp";
+          host = "any";
+        }
+        {
+          # Allow DNS over TLS
+          port = 853;
+          proto = "tcp";
+          host = "any";
+        }
       ];
 
       # NOTE: Allow traffic FROM this node
