@@ -23,6 +23,19 @@
     #   mtu = 1300; # 1300 is default internet traffic
     # };
 
+    settings = {
+      punchy = {
+        punch = true;
+        respond = true;
+        delay = "1s";
+      };
+
+      relay = {
+        am_relay = false;
+        use_relay = false;
+      };
+    };
+
     # INFO: firewall is default deny.  There is no way to write a deny rule!
     firewall = {
       # NOTE: Allow traffic TO this node
