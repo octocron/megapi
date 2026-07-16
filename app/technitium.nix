@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+_:
 # NOTE: http://localhost:5380
 {
   services.technitium-dns-server = {
@@ -7,5 +7,5 @@
     openFirewall = true;
   };
 
-  systemd.services.technitium-dns-server.serviceConfig.ReadWritePaths = [ "/var/log/technitium/dns" ];
+  systemd.services.technitium-dns-server.serviceConfig.LogsDirectory = "technitium";
 }
