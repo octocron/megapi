@@ -18,16 +18,28 @@
 
     environmentFile = config.sops.secrets.CF_API_TOKEN.path;
     globalConfig = ''
-      tls {
+      acme_dns {
         dns cloudflare {env.CF_API_TOKEN}
         resolvers 1.1.1.1
       }
     '';
 
-    virtualHosts."technitium.megaport.cc" = {
-      extraConfig = ''
-        reverse_proxy 127.0.0.1:5380
-      '';
+    virtualHosts = {
+      "*.megaport.cc" = {
+        extraConfig = ''
+          tls {
+            dns cloudflare {
+              env CF_API_TOKEN
+            }
+          }
+        '';
+      };
+
+      "technitium.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:5380
+        '';
+      };
     };
   };
 }
