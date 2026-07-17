@@ -53,6 +53,30 @@
           groups = [ "admin" ];
         }
         {
+          # Allow DNS
+          port = 53;
+          proto = "tcp";
+          host = "any";
+        }
+        {
+          # Allow DNS
+          port = 53;
+          proto = "udp";
+          host = "any";
+        }
+        {
+          # Allow HTTPS
+          port = 443;
+          proto = "tcp";
+          host = "any";
+        }
+        {
+          # Allow DNS over TLS
+          port = 853;
+          proto = "tcp";
+          host = "any";
+        }
+        {
           # Allow dns panel for admins
           port = 5380;
           proto = "tcp";
@@ -61,12 +85,6 @@
         {
           # Allow DNS over HTTPS
           port = 53443;
-          proto = "tcp";
-          host = "any";
-        }
-        {
-          # Allow DNS over TLS
-          port = 853;
           proto = "tcp";
           host = "any";
         }
