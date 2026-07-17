@@ -10,7 +10,7 @@
     email = gitEmail;
     package = pkgs.caddy.withPlugins {
       plugins = [
-        "github.com/caddy-dns/cloudflare"
+        "github.com/caddy-dns/cloudflare@v0.2.2"
       ];
 
       hash = "sha256-...";
