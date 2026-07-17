@@ -1,15 +1,7 @@
 # INFO: For secrets placed at system level like /etc/
 # NOTE: $(cat /run/screcrets/someAPIKey) to use a key from secrets
+{ username, ... }:
 {
-  inputs,
-  username,
-  ...
-}:
-{
-  imports = [
-    inputs.sops-nix.nixosModules.sops
-  ];
-
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     age = {
