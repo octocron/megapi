@@ -2,6 +2,7 @@
   config,
   gitEmail,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -13,7 +14,7 @@
         "github.com/caddy-dns/cloudflare@v0.2.2"
       ];
 
-      hash = "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw%3D";
+      hash = lib.fakeHash;
     };
 
     environmentFile = config.sops.secrets.CF_API_TOKEN.path;
