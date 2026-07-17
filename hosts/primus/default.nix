@@ -8,6 +8,7 @@ _: {
     ../../boot/pi5.nix
     ../../core
     ../../users/megacron.nix
+    ../../app/caddy.nix
     ../../app/technitium.nix
   ];
 }
