@@ -1,11 +1,31 @@
-{ gitEmail, ... }:
+{
+  config,
+  gitEmail,
+  pkgs,
+  ...
+}:
 {
   services.caddy = {
     enable = true;
     email = gitEmail;
-    virtualHosts."dns.megaport.cc" = {
+    package = pkgs.caddy.withPlugins {
+      plugins = [
+        "github.com/caddy-dns/cloudflare"
+      ];
+
+      hash = "sha256-...";
+    };
+
+    environmentFile = config.sops.secrets.CF_API_TOKEN.path;
+    globalConfig = ''
+      tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+      }
+    '';
+
+    virtualHosts."technitium.megaport.cc" = {
       extraConfig = ''
-        bind 10.99.0.37
         reverse_proxy 127.0.0.1:5380
       '';
     };

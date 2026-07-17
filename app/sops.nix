@@ -22,6 +22,8 @@
         mode = "0400";
         neededForUsers = true;
       };
+
+      "CF_API_TOKEN" = { };
     };
   };
 }
