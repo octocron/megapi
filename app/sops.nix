@@ -28,7 +28,7 @@
 
     templates."caddy-env" = {
       content = ''
-        CF_API_TOKEN=${config.sops.placeholder.CF_API_TOKEN}
+        CLOUDFLARE_API_TOKEN=${config.sops.placeholder.CF_API_TOKEN}
       '';
     };
   };
