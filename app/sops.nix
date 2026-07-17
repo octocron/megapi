@@ -1,6 +1,10 @@
 # INFO: For secrets placed at system level like /etc/
 # NOTE: $(cat /run/screcrets/someAPIKey) to use a key from secrets
-{ username, ... }:
+{
+  config,
+  username,
+  ...
+}:
 {
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
@@ -15,7 +19,17 @@
         neededForUsers = true;
       };
 
-      "CF_API_TOKEN" = { };
+      "CF_API_TOKEN" = {
+        owner = "caddy";
+        group = "caddy";
+        mode = "0400";
+      };
+    };
+
+    templates."caddy-env" = {
+      content = ''
+        CF_API_TOKEN=${config.sops.placeholder.CF_API_TOKEN}
+      '';
     };
   };
 }

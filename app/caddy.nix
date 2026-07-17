@@ -16,21 +16,18 @@
       hash = "sha256-qEA6058svI8Q6yE97OkfnGWC8ayI3x8y2iU7PGkJ3Do=";
     };
 
-    environmentFile = config.sops.secrets.CF_API_TOKEN.path;
+    environmentFile = config.sops.templates."caddy-env".path;
+
     globalConfig = ''
-      acme_dns {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-      }
+      acme_dns cloudflare
+      resolvers 1.1.1.1
     '';
 
     virtualHosts = {
       "*.megaport.cc" = {
         extraConfig = ''
           tls {
-            dns cloudflare {
-              env CF_API_TOKEN
-            }
+            dns cloudflare
           }
         '';
       };
