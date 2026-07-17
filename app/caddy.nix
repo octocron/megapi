@@ -10,16 +10,16 @@
     email = gitEmail;
     package = pkgs.caddy.withPlugins {
       plugins = [
-        "github.com/caddy-dns/cloudflare@v0.2.2"
+        "github.com/caddy-dns/cloudflare@v0.2.4"
       ];
 
-      hash = "sha256-qEA6058svI8Q6yE97OkfnGWC8ayI3x8y2iU7PGkJ3Do=";
+      hash = "sha256-8yZDrejNKsaUnUaTUFYbarWNmxafqp2z2rWo+XRsxV8=";
     };
 
     environmentFile = config.sops.templates."caddy-env".path;
 
     globalConfig = ''
-      acme_dns cloudflare
+      acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
       resolvers 1.1.1.1
     '';
 
