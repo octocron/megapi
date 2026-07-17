@@ -26,7 +26,9 @@
       "*.megaport.cc" = {
         extraConfig = ''
           tls {
-            dns cloudflare
+            dns cloudflare {
+              api_token {env.CLOUDFLARE_API_TOKEN}
+            }
           }
         '';
       };
