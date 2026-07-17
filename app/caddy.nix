@@ -20,7 +20,6 @@
 
     globalConfig = ''
       acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
-      resolvers 1.1.1.1
     '';
 
     virtualHosts = {
