@@ -11,6 +11,6 @@ _: {
     ../../app/caddy.nix
     ../../app/homepage.nix
     ../../app/sops.nix
-    ../../app/unbound.nix
+    ../../app/unbound
   ];
 }

@@ -1,0 +1,14 @@
+$ORIGIN 0.99.10.in-addr.arpa.
+$TTL 3600
+
+@ IN SOA primus.megaport.cc. hostmaster.megaport.cc. (
+    2026071801
+    7200
+    3600
+    1209600
+    3600
+)
+
+@  IN NS primus.megaport.cc.
+
+37 IN PTR primus.megaport.cc.

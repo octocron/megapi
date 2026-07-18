@@ -1,0 +1,15 @@
+$ORIGIN megaport.cc.
+$TTL 3600
+
+@ IN SOA primus.megaport.cc. hostmaster.megaport.cc. (
+    2026071801 ; serial
+    7200       ; refresh
+    3600       ; retry
+    1209600    ; expire
+    3600       ; minimum
+)
+
+@         IN NS primus.megaport.cc.
+primus    IN A  10.99.0.37
+homepage  IN A  10.99.0.37
+*         IN A  10.99.0.37
