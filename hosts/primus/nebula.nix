@@ -77,16 +77,10 @@
           host = "any";
         }
         {
-          # Allow dns panel for admins
-          port = 5380;
+          # Allow homepage
+          port = 8082;
           proto = "tcp";
           groups = [ "admin" ];
-        }
-        {
-          # Allow DNS over HTTPS
-          port = 53443;
-          proto = "tcp";
-          host = "any";
         }
       ];
 
