@@ -60,8 +60,6 @@ _: {
         log-replies = false;
         verbosity = 1;
       };
-
-      remote-control.control-enable = true;
     };
   };
 }
