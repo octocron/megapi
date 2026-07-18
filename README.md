@@ -2,7 +2,7 @@
 
 > This flake uses nvmd flake to build the base image for all types of raspberry pi's.
 
-## Create the Installer Image (live)
+## Create pi5 Installer Image (live)
 
 1. git clone https://github.com/nvmd/nixos-raspberrypi
 2. add to flake.nix in the custom-user-config section (adjust to your key):
@@ -107,3 +107,22 @@ sudo nix run github:nix-community/disko#disko-install -- \
   --flake "gitlab:megacron/megapi#primus" \
   --disk main /dev/nvme0n1
 ```
+
+### pi4 has different stages.
+
+> we still use nvmd but we do not have flake stages.  
+> just using pi4 modules from nixos-raspberrypi.
+
+1. Build the pi4 image from our flake:
+
+```zsh
+nix build '.#nixosConfigurations.rpi4.config.system.build.sdImage'
+```
+
+2. dd result right onto the flash drive.
+
+```zsh
+dd if=/path/to/image.sdImage of=/dev/sdX bs=4M conv=fsync status=progress
+```
+
+3. Insert USB || sdcard > prosper

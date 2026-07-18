@@ -9,7 +9,8 @@ _: {
     ../../core
     ../../users/megacron.nix
     ../../app/caddy.nix
+    ../../app/homepage.nix
     ../../app/sops.nix
-    ../../app/technitium.nix
+    ../../app/unbound.nix
   ];
 }
