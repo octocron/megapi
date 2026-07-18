@@ -23,13 +23,13 @@ _: {
           {
             "Unbound" = {
               description = "DNS Resolver";
-              href = 10.99 .0 .37;
+              href = "10.99.0.37";
             };
           }
           {
             "Caddy" = {
               description = "Reverse Proxy";
-              href = 10.99 .0 .37;
+              href = "10.99.0.37";
             };
           }
         ];
