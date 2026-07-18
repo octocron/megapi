@@ -6,12 +6,12 @@ _: {
       auth-zone = [
         {
           name = "megaport.cc.";
-          zonefile = toString ./megaport.zone;
+          zonefile = "${./megaport.zone}";
           fallback-enabled = false;
         }
         {
           name = "0.99.10.in-addr.arpa.";
-          zonefile = toString ./reverse.zone;
+          zonefile = "${./reverse.zone}";
         }
       ];
 
