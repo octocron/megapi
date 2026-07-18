@@ -5,6 +5,8 @@
     systemPackages = with pkgs; [
       #inputs.megavim.packages.${pkgs.system}.default
       coreutils
+      dnslookup
+      dig
       git
       kitty.terminfo
       nebula
