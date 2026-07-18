@@ -25,8 +25,7 @@
     };
 
     nameservers = lib.mkDefault [
-      "9.9.9.9"
-      "149.112.112.112"
+      "127.0.0.1"
     ];
 
     firewall = {
