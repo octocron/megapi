@@ -2,12 +2,7 @@ _: {
   services.homepage-dashboard = {
     enable = true;
     openFirewall = true;
-    theme = "dark";
-    iconStyle = "theme";
-    language = "en";
     allowedHosts = "homepage.megaport.cc,localhost:8082,127.0.0.1:8082";
-    #background = "";
-    title = "Another wall of joy!";
 
     widgets = [
       {
@@ -50,17 +45,5 @@ _: {
         ];
       }
     ];
-
-    layout = {
-      Media = {
-        style = "row";
-        columns = 4;
-      };
-
-      Services = {
-        style = "row";
-        columns = 4;
-      };
-    };
   };
 }
