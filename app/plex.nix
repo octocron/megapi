@@ -1,28 +1,14 @@
-{ lib, pkgs, username, ... }:
-
-let
-  extLabel = "SamsungT7";             # label of the external drive
-  extDrivePath = "/mnt/d";            # path where Windows has mounted the external drive
-  mountPath = "/mnt/extssd";    # path inside NixOS VM
-in
-
-{
-  programs = with pkgs.unstable; {
-    plex = {
-      enable = true;
-      openFirewall = true;
-      group = "users";
-      user = "${username}";
-      settings = {
-        mediaLibrary = "{$mountPath}"/"${extLabel}";
-      };
-    };
-  }
-
+_: {
+  services.plex = {
+    enable = true;
+    openFirewall = true;
+    group = "plex";
+    user = "plex";
+  };
 
   # SSD support
-  fileSystems."${mountPath}" = {
-    device = "/dev/disk/by-label/${extDrivePath}";
+  fileSystems."/mnt/extssd" = {
+    device = "/dev/disk/by-label/mnt/d";
     fsType = "exfat";
     options = [
       "defaults"
@@ -33,13 +19,4 @@ in
       "x-systemd.after=network-online.target"
     ];
   };
-
-
-
-  # Make sure we can mount /mnt/external-ssd in wsl
-
-
-
-
-  systemd.services.plex.serviceConfig.ProtectHome = lib.mkForce false;
 }

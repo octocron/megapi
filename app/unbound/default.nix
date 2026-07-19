@@ -12,6 +12,7 @@ _: {
         {
           name = "0.99.10.in-addr.arpa.";
           zonefile = "${./reverse.zone}";
+          fallback-enabled = false;
         }
       ];
 
@@ -32,6 +33,14 @@ _: {
           "10.99.0.0/16 allow"
           "192.168.1.0/24 allow"
           "10.0.81.0/24 allow"
+        ];
+
+        private-address = [
+          "192.168.0.0/16"
+          "169.254.0.0/16"
+          "172.16.0.0/12"
+          "127.0.0.0/8"
+          "10.0.0.0/8"
         ];
 
         interface = [
@@ -58,7 +67,9 @@ _: {
         use-syslog = true;
         log-queries = false;
         log-replies = false;
+        so-reuseport = true;
         verbosity = 1;
+        num-threads = 4;
       };
     };
   };

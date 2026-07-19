@@ -15,7 +15,9 @@ _: {
 
   zramSwap = {
     enable = true;
+    algorithm = "zstd";
     memoryPercent = 50;
+    swapDevices = 1;
   };
 
   swapDevices = [
