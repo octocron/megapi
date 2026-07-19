@@ -12,6 +12,7 @@
       nebula
       pciutils
       raspberrypi-eeprom
+      tcpdump
       usbutils
       util-linux
     ];

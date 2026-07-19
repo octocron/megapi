@@ -11,7 +11,6 @@
     nftables.enable = true;
 
     wireless = {
-      enable = false;
       iwd = {
         enable = false;
         settings = {
@@ -31,8 +30,10 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
+        53 # dns
       ];
       allowedUDPPorts = [
+        53 # dns
         4242 # lighthouse
       ];
 
