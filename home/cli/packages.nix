@@ -18,6 +18,7 @@
     inxi # Bash: ↑ system info
     just # ↑ make
     lazydocker # Go: full docker mgmt app
+    llmfit # Rust: tui for
     man-db # C:
     most # C: ↑ less
     nebula
@@ -35,6 +36,7 @@
     tokei # Rust: ↑ stats about code project
     tre # C: ↑ tree
     trippy # Rust: ↑ traceroute + ping + bandwhich in one
+    tuxedo # Rust: todo.txt manager
     unrar # C:
     unzip # C:
     uutils-coreutils # Rust: ↑ coreutils rewrite

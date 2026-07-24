@@ -1,8 +1,7 @@
 # INFO: Create a CA: nebula-cert ca -name "megaport" -duration 2400d -out-dir /etc/nebula
 # TODO: sudo chmod --reference /etc/nix /etc/nebula
 # TODO: sudo chmod --reference /etc/nix/nix.conf /etc/nebula/*
-{ hostname, ... }:
-{
+{ hostname, ... }: {
   services.nebula.networks.megaport = {
     enable = true;
     isLighthouse = true;
@@ -69,12 +68,6 @@
           port = 853;
           proto = "tcp";
           host = "any";
-        }
-        {
-          # Allow homepage
-          port = 8082;
-          proto = "tcp";
-          groups = [ "admin" ];
         }
       ];
 

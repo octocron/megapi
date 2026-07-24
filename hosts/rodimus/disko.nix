@@ -38,7 +38,8 @@ in
   disko.devices = {
     disk.nvme = {
       type = "disk";
-      device = "/dev/nvme0n1";
+      # NOTE: ls -l /dev/disk/by-id/
+      device = "/dev/disk/by-id/nvme-Seagate_FireCuda_520_SSD_ZP1000GM30002_7QG002MB";
       content = {
         type = "gpt";
         partitions = {
@@ -65,4 +66,3 @@ in
     };
   };
 }
-

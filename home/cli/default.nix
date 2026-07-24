@@ -5,7 +5,7 @@ _: {
     ./git.nix
     ./packages.nix
     #./sops.nix
-    #./ssh.nix
+    ./ssh.nix
     ./tealdeer.nix
     ./tmux.nix
     ./yazi.nix

@@ -32,83 +32,33 @@
 4. Uncompress Image: `nix shell nixpkgs#zstd -c unzstd -d result/sd-image/*.img.zst`
 5. Use BalenaEtcher to place image on USB or SD card.
 
-## add disko to personal flake
+## ssh to clone my pi-demo flake
+
+> This helps transition to larger flakes. megapi for example usually fails with disko.
 
 1. Boot from USB and `ssh nixos@ipaddress`
-2. `lsblk` and `lsblk -f` and make sure you know the device name for disko.
+2. `lsblk` and `lsblk -f` and make sure you know the device name for disko
 3. nvme is likely /dev/nvme0n1 the usb is likely /dev/sda
-4. create a disko.nix for each host
+4. git clone https://gitlab.com/megacron/pi-demo.git
+5. follow steps of that readme flake and come back after booting
 
-```nix
-{
-  disko.devices = {
-    disk = {
-      nvme = {
-        device = "/dev/nvme0n1";
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              size = "512M";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-              };
-            };
-            root = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
-              };
-            };
-          };
-        };
-      };
-    };
-  };
-}
-```
+## Now work on personal flake (mine is megapi)
 
-## Ensure nvmd is integrated in personal flake
+1. (disko.nix) needs to reflect the nvme disk id we used early to ensure boot continues.
+2. make sure you have all your nvmd modules continued as well. (hardware.nix)
+3. copy your own sops, ssh, nebula keys as necessary.
 
-1. add inputs in flake.nix
-
-```nix
-inputs = {
-  nixos-anywhere.url = "github:nix-community/nixos-anywhere";
-  nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
-};
-```
-
-> do not forget to include in your outputs!
-
-2. create a hardware.nix for each host folder.
-
-```nix
-{ inputs, ... }:
-{
-  imports = with inputs.nixos-raspberrypi.nixosModules; [
-    raspberry-pi-5.base
-    raspberry-pi-5.page-size-16k
-  ];
-}
-```
-
-3. Make sure ssh and sops is not activated for initial build as keys.txt and ssh keys are not in place.
-4. Run disko to install your personal flake.
+> Install your own customization of megapi with similar command  
+> since we are at this point on the nvme we can now perform  
+> from inside the flake:
 
 ```zsh
-sudo nix run github:nix-community/disko#disko-install -- \
-  --flake "gitlab:megacron/megapi#primus" \
-  --disk main /dev/nvme0n1
+sudo nixos-rebuild switch --flake .#primus
 ```
 
-### pi4 has different stages.
+---
+
+## pi4 has different stages and most above does not apply
 
 > we still use nvmd but we do not have flake stages.  
 > just using pi4 modules from nixos-raspberrypi.
