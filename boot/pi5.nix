@@ -1,4 +1,4 @@
-_: {
+{ lib, ... }: {
   #-------------------------BOOT-------------------------------#
   boot = {
     tmp.useTmpfs = true;
@@ -12,6 +12,8 @@ _: {
       };
     };
   };
+
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
   zramSwap = {
     enable = true;
