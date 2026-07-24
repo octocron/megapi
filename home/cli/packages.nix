@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # cli tools
     age
@@ -36,7 +35,7 @@
     tokei # Rust: ↑ stats about code project
     tre # C: ↑ tree
     trippy # Rust: ↑ traceroute + ping + bandwhich in one
-    tuxedo # Rust: todo.txt manager
+    #tuxedo # Rust: todo.txt manager
     unrar # C:
     unzip # C:
     uutils-coreutils # Rust: ↑ coreutils rewrite
