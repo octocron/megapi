@@ -14,5 +14,5 @@ primus    IN A  10.99.0.37
 homepage  IN A  10.99.0.37
 *         IN A  10.99.0.37
 
-primus-cache    IN A 192.168.1.37
-rodimus-cache   IN A 192.168.1.38
+primus-cache    IN A 10.99.0.37
+rodimus-cache   IN A 10.99.0.38
