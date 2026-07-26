@@ -5,6 +5,7 @@ _: {
     ./caddy.nix
     ./disko.nix
     ./hardware.nix
+    ./interfaces.nix
     ./nebula.nix
     ../../boot/pi5.nix
     ../../core

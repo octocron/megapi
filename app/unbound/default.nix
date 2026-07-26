@@ -43,10 +43,6 @@ _: {
           "10.0.0.0/8"
         ];
 
-        interface = [
-          "0.0.0.0"
-        ];
-
         port = 53;
         cache-min-ttl = 3600;
         cache-max-ttl = 86400;
