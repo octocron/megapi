@@ -65,9 +65,9 @@ _: {
         use-syslog = true;
         log-queries = false;
         log-replies = false;
-        so-reuseport = true;
+        #so-reuseport = true;
         verbosity = 1;
-        num-threads = 4;
+        #num-threads = 4;
       };
     };
   };
