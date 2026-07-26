@@ -31,6 +31,7 @@
       enable = true;
       allowedTCPPorts = [
         53 # dns
+        5000 # nix-serve
       ];
       allowedUDPPorts = [
         53 # dns
@@ -39,7 +40,6 @@
 
       interfaces.end0.allowedTCPPorts = [
         22 # ssh
-        5000 # nix-serve
       ];
 
       trustedInterfaces = [

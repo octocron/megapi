@@ -33,15 +33,15 @@
         '';
       };
 
-      # "technitium.megaport.cc" = {
-      #   extraConfig = ''
-      #     reverse_proxy 127.0.0.1:5380
-      #   '';
-      # };
-
       "homepage.megaport.cc" = {
         extraConfig = ''
           reverse_proxy 127.0.0.1:8082
+        '';
+      };
+
+      "primus-cache.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:5000
         '';
       };
     };

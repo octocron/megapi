@@ -1,5 +1,4 @@
-{ username, ... }:
-{
+{ username, ... }: {
   nix = {
     nrBuildUsers = 2;
     settings = {
@@ -26,8 +25,15 @@
         "nix-command"
       ];
 
-      substituters = [ "https://nixos-raspberrypi.cachix.org" ];
+      substituters = [
+        "http://primus-cache.megaport.cc"
+        "http://rodimus-cache.megaport.cc"
+        "https://nixos-raspberrypi.cachix.org"
+      ];
+
       trusted-public-keys = [
+        "primus-cache:3xS2jPABm4Y547i8J9sODjTLKF8HeqeCf9OpaEM/hjo="
+        "rodimus-cache:WVqYFspvfsDipmSiwgHBcmZXyCIasCWYsBGQsqmf254="
         "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
       ];
     };
