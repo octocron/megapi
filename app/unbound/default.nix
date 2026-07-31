@@ -1,7 +1,7 @@
 _: {
   services.unbound = {
     enable = true;
-    checkconf = true;
+    checkconf = false;
     settings = {
       auth-zone = [
         {
@@ -31,10 +31,6 @@ _: {
         control-enable = true;
         control-port = 8953;
         control-interface = "127.0.0.1";
-        control-key-file = "/var/lib/unbound/unbound_control.key";
-        control-cert-file = "/var/lib/unbound/unbound_control.pem";
-        server-key-file = "/var/lib/unbound/unbound_server.key";
-        server-cert-file = "/var/lib/unbound/unbound_server.pem";
       };
 
       server = {
