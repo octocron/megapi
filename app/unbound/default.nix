@@ -27,6 +27,8 @@ _: {
         }
       ];
 
+      remote-control.control-enable = true;
+
       server = {
         access-control = [
           "127.0.0.0/8 allow"
@@ -46,6 +48,8 @@ _: {
         port = 53;
         cache-min-ttl = 3600;
         cache-max-ttl = 86400;
+        serve-expired = true;
+        serve-expired-ttl = 86400;
         msg-cache-size = "50m";
         rrset-cache-size = "100m";
         do-ip4 = true;
@@ -53,7 +57,9 @@ _: {
         do-udp = true;
         do-tcp = true;
         prefetch = true;
+        prefetch-key = true;
         harden-glue = true;
+        aggressive-nsec = true;
         harden-dnssec-stripped = true;
         qname-minimisation = true;
         hide-identity = true;
