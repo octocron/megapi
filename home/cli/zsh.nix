@@ -73,6 +73,8 @@
         mostcli = "history | awk '{print $2}' | sort | uniq -c | sort -nr | head -10";
         reload = "source ${config.home.homeDirectory}/.zshrc";
         show_path = "echo $PATH | tr ':' '\n'";
+        ub = "sudo unbound-control -c /etc/unbound/unbound.conf"; # NOTE: [dump_cache list forwards stats_noreset status ]
+        ubl = "sudo journalctl -fu unbound";
         week = "date +%V";
         wttr = "curl wttr.in";
         #-------------git---------------------------------------------------->>>
