@@ -8,11 +8,19 @@
       settings = {
         "*" = {
           addKeysToAgent = "yes";
+          user = username;
+          identitiesOnly = true;
           identityFile = [
             "~/.ssh/id_${username}"
           ];
-          identitiesOnly = true;
-          user = "${username}";
+        };
+
+        "primus" = {
+          hostname = "192.168.1.37";
+        };
+
+        "rodimus" = {
+          hostname = "192.168.1.38";
         };
       };
     };

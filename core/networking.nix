@@ -31,7 +31,6 @@
       enable = true;
       allowedTCPPorts = [
         53 # dns
-        5000 # nix-serve
       ];
       allowedUDPPorts = [
         53 # dns

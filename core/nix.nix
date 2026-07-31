@@ -26,8 +26,8 @@
       ];
 
       substituters = [
-        "http://primus-cache.megaport.cc"
-        "http://rodimus-cache.megaport.cc"
+        "ssh://megacron@primus"
+        "ssh://megacron@rodimus"
         "https://nixos-raspberrypi.cachix.org"
       ];
 
