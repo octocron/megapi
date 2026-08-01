@@ -33,7 +33,7 @@ in
     disk.nvme = {
       type = "disk";
       # NOTE: ls -l /dev/disk/by-id/
-      device = "/dev/disk/by-id/nvme-WD_Blue_SN570_500GB_23180A802928";
+      device = "/dev/disk/by-id/nvme-uuid.eb8af24a-e718-2f45-a943-b63d74b622d5";
       content = {
         type = "gpt";
         partitions = {
