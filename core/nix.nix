@@ -26,14 +26,12 @@
       ];
 
       substituters = [
-        "ssh://megacron@primus"
-        "ssh://megacron@rodimus"
+        "ssh://megacron@192.168.1.37"
+        "ssh://megacron@192.168.1.38"
         "https://nixos-raspberrypi.cachix.org"
       ];
 
       trusted-public-keys = [
-        "primus-cache:3xS2jPABm4Y547i8J9sODjTLKF8HeqeCf9OpaEM/hjo="
-        "rodimus-cache:WVqYFspvfsDipmSiwgHBcmZXyCIasCWYsBGQsqmf254="
         "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
       ];
     };
