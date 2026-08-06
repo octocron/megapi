@@ -4,10 +4,11 @@ _: {
   imports = [
     ./disko.nix
     ./hardware.nix
-    #./nebula.nix
+    ./nebula.nix
     ../../boot/pi5.nix
     ../../core
+    ../../home/wm/caelestia.nix
     ../../users/megacron.nix
-    #../../app/sops.nix
+    ../../app/sops.nix
   ];
 }

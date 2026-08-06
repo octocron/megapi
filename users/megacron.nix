@@ -1,4 +1,5 @@
 {
+  config,
   gitUsername,
   pkgs,
   username,
@@ -20,7 +21,7 @@
           "video"
           "wheel"
         ];
-        #hashedPasswordFile = config.sops.secrets.passwordHash.path;
+        hashedPasswordFile = config.sops.secrets.passwordHash.path;
         hashedPassword = "$y$j9T$7R.RJNMdrEQUss9q9V2hj1$7LbLSoG.H/Wn4N8KiguzwGF5sE8mhcq/gtAVS87./RB";
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7Nb8wXQWd9H69U6TzPoE1MJDzUbGZSwwJCaXBvzgdb megacron"
