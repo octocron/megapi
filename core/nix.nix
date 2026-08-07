@@ -26,8 +26,6 @@
       ];
 
       substituters = [
-        "ssh://megacron@192.168.1.37"
-        "ssh://megacron@192.168.1.38"
         "https://nixos-raspberrypi.cachix.org"
       ];
 
