@@ -18,18 +18,6 @@
         mode = "0400";
         neededForUsers = true;
       };
-
-      "CF_API_TOKEN" = {
-        owner = "caddy";
-        group = "caddy";
-        mode = "0400";
-      };
-    };
-
-    templates."caddy-env" = {
-      content = ''
-        CLOUDFLARE_API_TOKEN=${config.sops.placeholder.CF_API_TOKEN}
-      '';
     };
   };
 }
