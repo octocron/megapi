@@ -7,7 +7,7 @@ _: {
     ./nebula.nix
     ../../boot/pi5.nix
     ../../core
-    ../../home/wm/caelestia.nix
+    #../../home/wm/caelestia.nix
     ../../users/megacron.nix
     ../../app/sops.nix
   ];
