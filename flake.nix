@@ -68,6 +68,7 @@
       theTimezone = "America/New_York";
       commonSpecialArgs = {
         inherit system;
+        inherit inputs;
         inherit gitEmail;
         inherit gitUsername;
         inherit theLocale;
