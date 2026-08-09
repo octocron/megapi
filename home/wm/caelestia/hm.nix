@@ -3,7 +3,6 @@
     packages = with pkgs; [
       # NOTE: unmodified graphical apps
       brave
-      discord
 
       # NOTE: graphical cli tools
       bibata-cursors

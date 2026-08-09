@@ -7,7 +7,6 @@
       #----------MOD---------------------------------------->>
       "$mainMod,B,exec,uwsm app -- brave"
       "$mainMod,C,exec,hyprpicker -a"
-      "$mainMod,D,exec,uwsm app -- discord"
       "$mainMod,F,fullscreen,"
       "$mainMod,P,exec,uwsm app -- plex-desktop"
       "$mainMod,Q,killactive,"

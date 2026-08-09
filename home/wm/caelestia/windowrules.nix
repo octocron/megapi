@@ -7,7 +7,6 @@
         "tag +terminal, match:class kitty-dropterm"
         "tag +terminal, match:class org.wezfurlong.wezterm"
         "tag +browser, match:class brave-browser"
-        "tag +im, match:class discord"
         "tag +settings, match:class blueman-manager"
         "tag +settings, match:class pwvucontrol"
         "tag +settings, match:class ^(nwg-look|qt5ct|qt6ct|[Yy]ad)$"
