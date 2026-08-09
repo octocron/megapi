@@ -18,9 +18,11 @@
   ];
 
   environment = {
-    systemPackages = with pkgs; [
-      caelestia-shell.packages.${pkgs.system}.with-cli
+    systemPackages = [
+      inputs.caelestia-shell.packages.${pkgs.system}.with-cli
       #inputs.megavim.packages.${pkgs.system}.default
+    ]
+    ++ (with pkgs; [
       brightnessctl
       grim
       hyprpicker
@@ -32,7 +34,7 @@
       swappy
       uwsm
       wl-clipboard
-    ];
+    ]);
 
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
