@@ -10,6 +10,24 @@
           enable = true;
           value = true;
         };
+
+        # Force HDMI detection
+        hdmi_force_hotplug = {
+          enable = true;
+          value = true;
+        };
+
+        # Allocate two DRM framebuffers
+        max_framebuffers = {
+          enable = true;
+          value = 2;
+        };
+
+        # Useful for diagnostics if EDID is being problematic
+        hdmi_force_edid_audio = {
+          enable = true;
+          value = true;
+        };
       };
 
       base-dt-params = {
@@ -22,6 +40,10 @@
           value = "3";
         };
       };
+
+      overlays = [
+        "vc4-kms-v3d"
+      ];
     };
   };
 }
