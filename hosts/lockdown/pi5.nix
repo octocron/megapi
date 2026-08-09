@@ -41,9 +41,11 @@
         };
       };
 
-      overlays = [
-        "vc4-kms-v3d"
-      ];
+      dt-overlays = {
+        vc4-kms-v3d = {
+          enable = true;
+        };
+      };
     };
   };
 }
