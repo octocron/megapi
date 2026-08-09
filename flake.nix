@@ -12,10 +12,10 @@
   };
 
   inputs = {
-    # caelestia-shell = {
-    #   url = "github:caelestia-dots/shell";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     disko = {
       url = "github:nix-community/disko";
@@ -48,6 +48,7 @@
   outputs =
     inputs@{
       disko,
+      caelestia-shell,
       home-manager,
       megavim,
       nixpkgs,
