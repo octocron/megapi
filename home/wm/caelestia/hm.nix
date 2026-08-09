@@ -7,6 +7,8 @@
 
       # NOTE: graphical cli tools
       bibata-cursors
+      hyprland-qtutils # needed for banners and ANR messages
+      hyprpolkitagent
       thunar
       thunar-volman
       thunar-archive-plugin

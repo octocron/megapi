@@ -1,9 +1,4 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    hyprland-qtutils # needed for banners and ANR messages
-    hyprpolkitagent
-  ];
-
+{
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
