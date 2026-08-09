@@ -12,8 +12,6 @@
     ./nebula.nix
     ../../boot/pi5.nix
     ../../core
-    ../../home/gui
-    ../../home/wm/caelestia
     ../../users/megacron.nix
     ../../app/sops.nix
   ];

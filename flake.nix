@@ -124,6 +124,8 @@
                 backupFileExtension = "backup";
                 users.${username}.imports = [
                   ./home.nix
+                  ./home/gui
+                  ./home/wm/caelestia
                   sops-nix.homeManagerModules.sops
                 ];
               };
