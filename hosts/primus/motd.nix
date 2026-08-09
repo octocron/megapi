@@ -1,4 +1,4 @@
-_: {
+{
   programs.rust-motd = {
     enable = true;
     enableMotdInSSHD = true;

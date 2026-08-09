@@ -1,4 +1,4 @@
-_: {
+{
   services.unbound.settings.server = {
     interface = [
       "127.0.0.1"

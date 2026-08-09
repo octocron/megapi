@@ -1,5 +1,5 @@
 # NOTE: https://man.archlinux.org/man/zathurarc.5
-_: {
+{
   programs.zathura = {
     enable = true;
     mappings = {

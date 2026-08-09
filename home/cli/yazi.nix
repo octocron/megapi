@@ -1,4 +1,3 @@
-_:
 # INFO: run:  $n(unix)/%n(windows) - nth selected file
 #             $0(unix)/%0(windows) - the hovered file
 #             $@(unix)/%*(windows) - all selected files

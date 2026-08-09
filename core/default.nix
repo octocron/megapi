@@ -1,4 +1,4 @@
-_: {
+{
   #----------Home Configurations----------#
   imports = [
     ./environment.nix

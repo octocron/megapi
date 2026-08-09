@@ -1,4 +1,4 @@
-_: {
+{
   systemd = {
     # INFO: give more time for services to shutdown gracefully
     settings.Manager = {

@@ -1,4 +1,4 @@
-_: {
+{
   #-----------------------SERVICES-----------------------#
   services = {
     fail2ban.enable = true;

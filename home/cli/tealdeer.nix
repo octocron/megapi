@@ -1,4 +1,3 @@
-_:
 # INFO: https://tealdeer-rs.github.io/tealdeer/config_directories.html
 #       Rust: ↑ tldr
 {

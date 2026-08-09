@@ -1,4 +1,3 @@
-_:
 # NOTE: http://localhost:5380
 {
   services.technitium-dns-server = {

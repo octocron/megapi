@@ -1,4 +1,4 @@
-_: {
+{
   services.unbound = {
     enable = true;
     checkconf = false;

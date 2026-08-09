@@ -1,4 +1,4 @@
-_: {
+{
   #-----------------------SECURITY-----------------------#
   security = {
     polkit.enable = true;
