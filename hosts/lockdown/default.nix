@@ -12,6 +12,7 @@
     ./nebula.nix
     ../../boot/pi5.nix
     ../../core
+    ../../home/gui/sddm.nix
     ../../users/megacron.nix
     ../../app/sops.nix
   ];
