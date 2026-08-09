@@ -21,6 +21,7 @@
   environment = {
     systemPackages = with pkgs; [
       inputs.caelestia-shell.packages.${pkgs.system}.with-cli
+      #inputs.megavim.packages.${pkgs.system}.default
       brightnessctl
       grim
       hyprpicker
@@ -33,6 +34,19 @@
       uwsm
       wl-clipboard
     ];
+
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      QT_QPA_PLATFORM = "wayland";
+      QT_QPA_PLATFORMTHEME = "gtk3";
+      QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
+      GDK_BACKEND = "wayland";
+      XDG_SESSION_TYPE = "wayland";
+      TERMINAL = "wezterm";
+      XDG_TERMINAL_EMULATOR = "wezterm";
+    };
   };
 
   programs.hyprland = {
