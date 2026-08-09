@@ -19,7 +19,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      inputs.caelestia-shell.packages.${pkgs.system}.with-cli
+      caelestia-shell.packages.${pkgs.system}.with-cli
       #inputs.megavim.packages.${pkgs.system}.default
       brightnessctl
       grim
