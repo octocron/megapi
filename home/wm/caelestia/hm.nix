@@ -3,6 +3,7 @@
     packages = with pkgs; [
       # NOTE: unmodified graphical apps
       brave
+      wezterm
 
       # NOTE: graphical cli tools
       bibata-cursors
