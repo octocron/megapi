@@ -9,6 +9,7 @@ in
     systemd.enable = false;
     xwayland.enable = true;
     settings = {
+      monitor = [ ",preferred,auto,1" ];
       on = {
         _args = [
           "hyprland.start"
@@ -25,87 +26,87 @@ in
         ];
       };
 
-      monitor = [ ",preferred,auto,1" ];
-
-      input = {
-        kb_layout = "us";
-        kb_options = [
-          "grp:alt_caps_toggle"
-          "caps:super"
-        ];
-        numlock_by_default = true;
-        repeat_delay = 300;
-        follow_mouse = 1;
-        float_switch_override_focus = false;
-        sensitivity = 0;
-      };
-
-      general = {
-        layout = "dwindle";
-        gaps_in = 4;
-        gaps_out = 8;
-        border_size = 3;
-        resize_on_border = true;
-        "col.active_border" = "rgba(ee4400ff) rgba(228800ff) 45deg";
-        "col.inactive_border" = "rgba(0066cccc) rgba(880022cc) 45deg";
-      };
-
-      misc = {
-        layers_hog_keyboard_focus = true;
-        initial_workspace_tracking = false;
-        mouse_move_enables_dpms = true;
-        key_press_enables_dpms = false;
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-        enable_swallow = false;
-        vfr = true; # Variable Frame Rate
-        vrr = true;
-
-        #  Application not responding (ANR) settings
-        enable_anr_dialog = true;
-        anr_missed_pings = 20;
-      };
-
-      dwindle = {
-        pseudotile = true;
-        preserve_split = true;
-        force_split = 2;
-      };
-
-      decoration = {
-        rounding = 10;
-        blur = {
-          enabled = true;
-          size = 5;
-          passes = 3;
-          ignore_opacity = false;
-          xray = true;
+      config = {
+        input = {
+          kb_layout = "us";
+          kb_options = [
+            "grp:alt_caps_toggle"
+            "caps:super"
+          ];
+          numlock_by_default = true;
+          repeat_delay = 300;
+          follow_mouse = 1;
+          float_switch_override_focus = false;
+          sensitivity = 0;
         };
-        shadow = {
-          enabled = true;
-          range = 4;
-          render_power = 3;
-          color = "rgba(1a1a1aee)";
+
+        general = {
+          layout = "dwindle";
+          gaps_in = 4;
+          gaps_out = 8;
+          border_size = 3;
+          resize_on_border = true;
+          "col.active_border" = "rgba(ee4400ff) rgba(228800ff) 45deg";
+          "col.inactive_border" = "rgba(0066cccc) rgba(880022cc) 45deg";
         };
-      };
 
-      ecosystem = {
-        no_donation_nag = true;
-        no_update_news = false;
-      };
+        misc = {
+          layers_hog_keyboard_focus = true;
+          initial_workspace_tracking = false;
+          mouse_move_enables_dpms = true;
+          key_press_enables_dpms = false;
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
+          enable_swallow = false;
+          vfr = true; # Variable Frame Rate
+          vrr = true;
 
-      cursor = {
-        sync_gsettings_theme = true;
-        no_hardware_cursors = false;
-        enable_hyprcursor = false;
-        warp_on_change_workspace = false;
-        no_warps = true;
-      };
+          #  Application not responding (ANR) settings
+          enable_anr_dialog = true;
+          anr_missed_pings = 20;
+        };
 
-      master = {
-        new_status = "master";
-        new_on_top = 1;
-        mfact = 0.5;
+        dwindle = {
+          pseudotile = true;
+          preserve_split = true;
+          force_split = 2;
+        };
+
+        decoration = {
+          rounding = 10;
+          blur = {
+            enabled = true;
+            size = 5;
+            passes = 3;
+            ignore_opacity = false;
+            xray = true;
+          };
+          shadow = {
+            enabled = true;
+            range = 4;
+            render_power = 3;
+            color = "rgba(1a1a1aee)";
+          };
+        };
+
+        ecosystem = {
+          no_donation_nag = true;
+          no_update_news = false;
+        };
+
+        cursor = {
+          sync_gsettings_theme = true;
+          no_hardware_cursors = false;
+          enable_hyprcursor = false;
+          warp_on_change_workspace = false;
+          no_warps = true;
+        };
+
+        master = {
+          new_status = "master";
+          new_on_top = 1;
+          mfact = 0.5;
+        };
       };
     };
   };
