@@ -29,10 +29,7 @@ in
       config = {
         input = {
           kb_layout = "us";
-          kb_options = [
-            "grp:alt_caps_toggle"
-            "caps:super"
-          ];
+          kb_options = "grp:alt_caps_toggle,caps:super";
           numlock_by_default = true;
           repeat_delay = 300;
           follow_mouse = 1;
@@ -46,8 +43,20 @@ in
           gaps_out = 8;
           border_size = 3;
           resize_on_border = true;
-          "col.active_border" = "rgba(ee4400ff) rgba(228800ff) 45deg";
-          "col.inactive_border" = "rgba(0066cccc) rgba(880022cc) 45deg";
+          "col.active_border" = {
+            colors = [
+              "rgba(ee4400ff)"
+              "rgba(228800ff)"
+            ];
+            angle = 45;
+          };
+          "col.inactive_border" = {
+            colors = [
+              "rgba(0066cccc)"
+              "rgba(880022cc)"
+            ];
+            angle = 45;
+          };
         };
 
         misc = {
@@ -58,7 +67,6 @@ in
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
           enable_swallow = false;
-          vfr = true; # Variable Frame Rate
           vrr = true;
 
           #  Application not responding (ANR) settings
@@ -67,7 +75,6 @@ in
         };
 
         dwindle = {
-          pseudotile = true;
           preserve_split = true;
           force_split = 2;
         };
