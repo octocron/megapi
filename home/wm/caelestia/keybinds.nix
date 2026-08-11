@@ -31,7 +31,6 @@ in
       #----------SUPER / SHIFT---------------------------------------->>
       (bind "SUPER + SHIFT + C" "hl.dsp.exit()")
       (bind "SUPER + SHIFT + F" ''hl.dsp.window.float({ action = "toggle" })'')
-      (bind "SUPER + SHIFT + I" ''hl.dsp.dispatch("togglesplit")'')
       (bind "SUPER + SHIFT + K" (exec "uwsm app -- kitty"))
       (bind "SUPER + SHIFT + M" (exec "uwsm app -- mullvad-vpn"))
       (bind "SUPER + SHIFT + P" (exec "uwsm app -- plexamp"))
