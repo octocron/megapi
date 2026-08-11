@@ -9,7 +9,13 @@ in
     systemd.enable = false;
     xwayland.enable = true;
     settings = {
-      monitor = [ ",preferred,auto,1" ];
+      monitor = {
+        output = "";
+        mode = "preferred";
+        position = "auto";
+        scale = 1;
+      };
+
       on = {
         _args = [
           "hyprland.start"
