@@ -97,10 +97,21 @@ in
       (bind "XF86AudioPrev" (exec "playerctl previous"))
       (bind "XF86MonBrightnessDown" (exec "brightnessctl set 5%-"))
       (bind "XF86MonBrightnessUp" (exec "brightnessctl set +5%"))
-    ];
-    bindm = [
-      (bind "SUPER + mouse:272" "hl.dsp.window.drag()")
-      (bind "SUPER + mouse:273" "hl.dsp.window.resize()")
+
+      {
+        _args = [
+          "SUPER + mouse:272"
+          (lua "hl.dsp.window.drag()")
+          { mouse = true; }
+        ];
+      }
+      {
+        _args = [
+          "SUPER + mouse:273"
+          (lua "hl.dsp.window.resize()")
+          { mouse = true; }
+        ];
+      }
     ];
   };
 }
