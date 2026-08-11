@@ -1,3 +1,7 @@
+{ lib, ... }:
+let
+  lua = lib.generators.mkLuaInline;
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -5,14 +9,21 @@
     systemd.enable = false;
     xwayland.enable = true;
     settings = {
-      exec-once = [
-        "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'"
-        "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
-        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user start hyprpolkitagent"
-        "caelestia shell -d"
-      ];
+      on = {
+        _args = [
+          "hyprland.start"
+          (lua ''
+            function()
+              hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'")
+              hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+              hl.exec_cmd("dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME")
+              hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+              hl.exec_cmd("systemctl --user start hyprpolkitagent")
+              hl.exec_cmd("caelestia shell -d")
+            end
+          '')
+        ];
+      };
 
       monitor = [ ",preferred,auto,1" ];
 
