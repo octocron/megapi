@@ -44,7 +44,6 @@ in
       (bind "SUPER + SHIFT + j" ''hl.dsp.window.move({ direction = "d" })'')
 
       #----------SUPER / ALT------------------------------------------>>
-      (bind "SUPER + ALT + D" ''hl.dsp.dispatch("pseudo")'')
       (bind "SUPER + ALT + P" (exec "pwvucontrol"))
       (bind "SUPER + ALT + F" ''hl.dsp.dispatch("workspaceopt", "allfloat")'')
       (bind "SUPER + ALT + left" ''hl.dsp.dispatch("swapwindow", "l")'')
