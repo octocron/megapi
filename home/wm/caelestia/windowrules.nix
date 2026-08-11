@@ -41,9 +41,5 @@
         "keep_aspect_ratio on, match:title ^(Picture-in-Picture)$"
       ];
     };
-
-    extraConfig = "
-      monitor=,preferred,auto,auto
-    ";
   };
 }
