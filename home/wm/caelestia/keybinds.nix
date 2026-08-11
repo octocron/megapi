@@ -1,98 +1,121 @@
+#----------MOD---------------------------------------->>
+{ lib, ... }:
+let
+  lua = lib.generators.mkLuaInline;
+
+  bind = key: action: {
+    _args = [
+      key
+      (lua action)
+    ];
+  };
+
+  exec = cmd: ''hl.dsp.exec_cmd("${cmd}")'';
+in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "SUPER,Return,exec,uwsm app -- wezterm"
-      "SUPER,Return,global,caelestia:launcher"
-      #----------MOD---------------------------------------->>
-      "SUPER,B,exec,uwsm app -- brave"
-      "SUPER,C,exec,hyprpicker -a"
-      "SUPER,F,fullscreen,"
-      "SUPER,P,exec,uwsm app -- plex-desktop"
-      "SUPER,Q,killactive,"
-      "SUPER,S,exec,uwsm app -- signal-desktop"
-      "SUPER,T,exec,uwsm app -- thunar"
-      "SUPER,W,exec,uwsm app -- wezterm"
-      "SUPER,Y,exec,uwsm app -- kitty -e yazi"
-      #----------MOD-SHIFT---------------------------------->>
-      "SUPER,C,exit,"
-      "SUPER,F,togglefloating,"
-      "SUPER,I,togglesplit,"
-      "SUPER,K,exec,uwsm app -- kitty"
-      "SUPER,M,exec,uwsm app -- mullvad-vpn"
-      "SUPER,P,exec,uwsm app -- plexamp"
-      "SUPER,left,movewindow,l"
-      "SUPER,right,movewindow,r"
-      "SUPER,up,movewindow,u"
-      "SUPER,down,movewindow,d"
-      "SUPER,h,movewindow,l"
-      "SUPER,l,movewindow,r"
-      "SUPER,k,movewindow,u"
-      "SUPER,j,movewindow,d"
-      #----------MOD-ALT------------------------------------>>
-      "SUPER,D,exec,pseudo" # Dwindle
-      "SUPER,P,exec,pwvucontrol"
-      "SUPER,F,workspaceopt, allfloat"
-      "SUPER, left, swapwindow,l"
-      "SUPER, right, swapwindow,r"
-      "SUPER, up, swapwindow,u"
-      "SUPER, down, swapwindow,d"
-      "SUPER, 43, swapwindow,l"
-      "SUPER, 46, swapwindow,r"
-      "SUPER, 45, swapwindow,u"
-      "SUPER, 44, swapwindow,d"
-      #----------WORKSPACES--------------------------------->>
-      "SUPER,left,movefocus,l"
-      "SUPER,right,movefocus,r"
-      "SUPER,up,movefocus,u"
-      "SUPER,down,movefocus,d"
-      "SUPER,h,movefocus,l"
-      "SUPER,l,movefocus,r"
-      "SUPER,k,movefocus,u"
-      "SUPER,j,movefocus,d"
-      "SUPER,1,workspace,1"
-      "SUPER,2,workspace,2"
-      "SUPER,3,workspace,3"
-      "SUPER,4,workspace,4"
-      "SUPER,5,workspace,5"
-      "SUPER,6,workspace,6"
-      "SUPER,7,workspace,7"
-      "SUPER,8,workspace,8"
-      "SUPER,9,workspace,9"
-      "SUPER,0,workspace,10"
-      "SUPER,SPACE,movetoworkspace,special"
-      "SUPER,SPACE,togglespecialworkspace"
-      "SUPER,1,movetoworkspace,1"
-      "SUPER,2,movetoworkspace,2"
-      "SUPER,3,movetoworkspace,3"
-      "SUPER,4,movetoworkspace,4"
-      "SUPER,5,movetoworkspace,5"
-      "SUPER,6,movetoworkspace,6"
-      "SUPER,7,movetoworkspace,7"
-      "SUPER,8,movetoworkspace,8"
-      "SUPER,9,movetoworkspace,9"
-      "SUPER,0,movetoworkspace,10"
-      "SUPER,right,workspace,e+1"
-      "SUPER,left,workspace,e-1"
-      "SUPER,mouse_down,workspace, e+1"
-      "SUPER,mouse_up,workspace, e-1"
-      "ALT,Tab,cyclenext"
-      "ALT,Tab,bringactivetotop"
-      "ALT,space,exec,global,caelestia:launcher"
-      #----------AUDIO----------------------------------->>
-      ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-      ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-      ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ",XF86AudioPlay, exec, playerctl play-pause"
-      ",XF86AudioPause, exec, playerctl play-pause"
-      ",XF86AudioNext, exec, playerctl next"
-      ",XF86AudioPrev, exec, playerctl previous"
-      ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
-      ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
+      #----------apps / core---------------------------------------->>
+      (bind "SUPER + Return" (exec "uwsm app -- wezterm"))
+      (bind "SUPER + SHIFT + Return" ''hl.dsp.global("caelestia:launcher")'')
+      (bind "SUPER + B" (exec "uwsm app -- brave"))
+      (bind "SUPER + C" (exec "hyprpicker -a"))
+      (bind "SUPER + F" "hl.dsp.window.fullscreen()")
+      (bind "SUPER + P" (exec "uwsm app -- plex-desktop"))
+      (bind "SUPER + Q" "hl.dsp.window.close()")
+      (bind "SUPER + S" (exec "uwsm app -- signal-desktop"))
+      (bind "SUPER + T" (exec "uwsm app -- thunar"))
+      (bind "SUPER + W" (exec "uwsm app -- wezterm"))
+      (bind "SUPER + Y" (exec "uwsm app -- kitty -e yazi"))
+
+      #----------SUPER / SHIFT---------------------------------------->>
+      (bind "SUPER + SHIFT + C" "hl.dsp.exit()")
+      (bind "SUPER + SHIFT + F" ''hl.dsp.window.float({ action = "toggle" })'')
+      (bind "SUPER + SHIFT + I" ''hl.dsp.dispatch("togglesplit")'')
+      (bind "SUPER + SHIFT + K" (exec "uwsm app -- kitty"))
+      (bind "SUPER + SHIFT + M" (exec "uwsm app -- mullvad-vpn"))
+      (bind "SUPER + SHIFT + P" (exec "uwsm app -- plexamp"))
+      (bind "SUPER + SHIFT + left" ''hl.dsp.window.move({ direction = "l" })'')
+      (bind "SUPER + SHIFT + right" ''hl.dsp.window.move({ direction = "r" })'')
+      (bind "SUPER + SHIFT + up" ''hl.dsp.window.move({ direction = "u" })'')
+      (bind "SUPER + SHIFT + down" ''hl.dsp.window.move({ direction = "d" })'')
+      (bind "SUPER + SHIFT + h" ''hl.dsp.window.move({ direction = "l" })'')
+      (bind "SUPER + SHIFT + l" ''hl.dsp.window.move({ direction = "r" })'')
+      (bind "SUPER + SHIFT + k" ''hl.dsp.window.move({ direction = "u" })'')
+      (bind "SUPER + SHIFT + j" ''hl.dsp.window.move({ direction = "d" })'')
+
+      #----------SUPER / ALT------------------------------------------>>
+      (bind "SUPER + ALT + D" ''hl.dsp.dispatch("pseudo")'')
+      (bind "SUPER + ALT + P" (exec "pwvucontrol"))
+      (bind "SUPER + ALT + F" ''hl.dsp.dispatch("workspaceopt", "allfloat")'')
+      (bind "SUPER + ALT + left" ''hl.dsp.dispatch("swapwindow", "l")'')
+      (bind "SUPER + ALT + right" ''hl.dsp.dispatch("swapwindow", "r")'')
+      (bind "SUPER + ALT + up" ''hl.dsp.dispatch("swapwindow", "u")'')
+      (bind "SUPER + ALT + down" ''hl.dsp.dispatch("swapwindow", "d")'')
+      (bind "SUPER + ALT + 43" ''hl.dsp.dispatch("swapwindow", "l")'')
+      (bind "SUPER + ALT + 46" ''hl.dsp.dispatch("swapwindow", "r")'')
+      (bind "SUPER + ALT + 45" ''hl.dsp.dispatch("swapwindow", "u")'')
+      (bind "SUPER + ALT + 44" ''hl.dsp.dispatch("swapwindow", "d")'')
+
+      #----------focus / workspaces------------------------------------------>>
+      (bind "SUPER + left" ''hl.dsp.focus({ direction = "l" })'')
+      (bind "SUPER + right" ''hl.dsp.focus({ direction = "r" })'')
+      (bind "SUPER + up" ''hl.dsp.focus({ direction = "u" })'')
+      (bind "SUPER + down" ''hl.dsp.focus({ direction = "d" })'')
+      (bind "SUPER + h" ''hl.dsp.focus({ direction = "l" })'')
+      (bind "SUPER + l" ''hl.dsp.focus({ direction = "r" })'')
+      (bind "SUPER + k" ''hl.dsp.focus({ direction = "u" })'')
+      (bind "SUPER + j" ''hl.dsp.focus({ direction = "d" })'')
+
+      (bind "SUPER + 1" ''hl.dsp.dispatch("workspace", "1")'')
+      (bind "SUPER + 2" ''hl.dsp.dispatch("workspace", "2")'')
+      (bind "SUPER + 3" ''hl.dsp.dispatch("workspace", "3")'')
+      (bind "SUPER + 4" ''hl.dsp.dispatch("workspace", "4")'')
+      (bind "SUPER + 5" ''hl.dsp.dispatch("workspace", "5")'')
+      (bind "SUPER + 6" ''hl.dsp.dispatch("workspace", "6")'')
+      (bind "SUPER + 7" ''hl.dsp.dispatch("workspace", "7")'')
+      (bind "SUPER + 8" ''hl.dsp.dispatch("workspace", "8")'')
+      (bind "SUPER + 9" ''hl.dsp.dispatch("workspace", "9")'')
+      (bind "SUPER + 0" ''hl.dsp.dispatch("workspace", "10")'')
+
+      (bind "SUPER + SHIFT + SPACE" ''hl.dsp.dispatch("movetoworkspace", "special")'')
+      (bind "SUPER + SPACE" ''hl.dsp.dispatch("togglespecialworkspace")'')
+
+      (bind "SUPER + SHIFT + 1" ''hl.dsp.dispatch("movetoworkspace", "1")'')
+      (bind "SUPER + SHIFT + 2" ''hl.dsp.dispatch("movetoworkspace", "2")'')
+      (bind "SUPER + SHIFT + 3" ''hl.dsp.dispatch("movetoworkspace", "3")'')
+      (bind "SUPER + SHIFT + 4" ''hl.dsp.dispatch("movetoworkspace", "4")'')
+      (bind "SUPER + SHIFT + 5" ''hl.dsp.dispatch("movetoworkspace", "5")'')
+      (bind "SUPER + SHIFT + 6" ''hl.dsp.dispatch("movetoworkspace", "6")'')
+      (bind "SUPER + SHIFT + 7" ''hl.dsp.dispatch("movetoworkspace", "7")'')
+      (bind "SUPER + SHIFT + 8" ''hl.dsp.dispatch("movetoworkspace", "8")'')
+      (bind "SUPER + SHIFT + 9" ''hl.dsp.dispatch("movetoworkspace", "9")'')
+      (bind "SUPER + SHIFT + 0" ''hl.dsp.dispatch("movetoworkspace", "10")'')
+
+      (bind "SUPER + CONTROL + right" ''hl.dsp.dispatch("workspace", "e+1")'')
+      (bind "SUPER + CONTROL + left" ''hl.dsp.dispatch("workspace", "e-1")'')
+      (bind "SUPER + mouse_down" ''hl.dsp.dispatch("workspace", "e+1")'')
+      (bind "SUPER + mouse_up" ''hl.dsp.dispatch("workspace", "e-1")'')
+
+      (bind "ALT + Tab" ''hl.dsp.dispatch("cyclenext")'')
+      (bind "ALT + Tab" ''hl.dsp.dispatch("bringactivetotop")'')
+      (bind "ALT + SPACE" ''hl.dsp.global("caelestia:launcher")'')
+
+      #----------media / brightness------------------------------------------>>
+      (bind "XF86AudioRaiseVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
+      (bind "XF86AudioLowerVolume" (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
+      (bind "XF86AudioMute" (exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+      (bind "XF86AudioPlay" (exec "playerctl play-pause"))
+      (bind "XF86AudioPause" (exec "playerctl play-pause"))
+      (bind "XF86AudioNext" (exec "playerctl next"))
+      (bind "XF86AudioPrev" (exec "playerctl previous"))
+      (bind "XF86MonBrightnessDown" (exec "brightnessctl set 5%-"))
+      (bind "XF86MonBrightnessUp" (exec "brightnessctl set +5%"))
     ];
 
     bindm = [
-      "SUPER, mouse:272, movewindow"
-      "SUPER, mouse:273, resizewindow"
+      (bind "SUPER + mouse:272" "hl.dsp.window.drag()")
+      (bind "SUPER + mouse:273" "hl.dsp.window.resize()")
     ];
   };
 }
