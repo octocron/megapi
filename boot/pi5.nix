@@ -3,6 +3,10 @@
   boot = {
     tmp.useTmpfs = true;
     kernel.sysctl."vm.swappiness" = 10;
+    kernelParams = [
+      "vc4.force_hotplug=3"
+      "video=HDMI-A-1:1920x1080@60D"
+    ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = false;
