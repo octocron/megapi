@@ -20,7 +20,7 @@
   environment = {
     systemPackages = [
       inputs.caelestia-shell.packages.${pkgs.system}.with-cli
-      #inputs.megavim.packages.${pkgs.system}.default
+      inputs.megavim.packages.${pkgs.system}.default
     ]
     ++ (with pkgs; [
       brightnessctl

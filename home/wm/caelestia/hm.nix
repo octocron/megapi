@@ -6,9 +6,15 @@
       wezterm
 
       # NOTE: graphical cli tools
+      aubio
       bibata-cursors
+      ddcutil
       hyprland-qtutils # needed for banners and ANR messages
       hyprpolkitagent
+      libcava
+      libqalculate
+      lm-sensors
+      material-symbols
       thunar
       thunar-volman
       thunar-archive-plugin
