@@ -13,7 +13,6 @@
       hyprpolkitagent
       libcava
       libqalculate
-      lm-sensors
       material-symbols
       thunar
       thunar-volman
