@@ -91,14 +91,14 @@
             inputs
             // commonSpecialArgs
             // {
-              hostname = "ironhide";
+              hostname = "scorponok";
             };
           modules = [
             ./hosts/ironhide/default.nix
             sops-nix.nixosModules.sops
           ];
         };
-        # INFO: Pi500+ Niri
+        # INFO: Pi500+ Caelestia
         lockdown = nixpkgs.lib.nixosSystem {
           specialArgs =
             inputs
