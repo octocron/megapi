@@ -10,11 +10,13 @@
     ./disko.nix
     ./hardware.nix
     ./nebula.nix
+
+    ../../app/sddm.nix
+    ../../app/sops.nix
+
     ../../boot/pi5.nix
     ../../core
-    ../../home/gui/sddm.nix
     ../../users/megacron.nix
-    ../../app/sops.nix
   ];
 
   environment = {
@@ -37,15 +39,14 @@
     ]);
 
     sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      MOZ_ENABLE_WAYLAND = "1";
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      GDK_BACKEND = "wayland";
+      MOZ_ENABLE_WAYLAND = "1";
+      NIXOS_OZONE_WL = "1";
       QT_QPA_PLATFORM = "wayland";
       QT_QPA_PLATFORMTHEME = "gtk3";
       QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
-      GDK_BACKEND = "wayland";
       XDG_SESSION_TYPE = "wayland";
-      TERMINAL = "wezterm";
       XDG_TERMINAL_EMULATOR = "wezterm";
     };
   };
@@ -58,11 +59,10 @@
 
   services = {
     blueman.enable = true;
-
     fstrim.enable = true; # ssd optimizer
     gvfs.enable = true; # allow gtk based file managers to browse samba shares
-
     libinput.enable = true; # input handler
+
     pipewire = {
       enable = true;
       alsa.enable = true;

@@ -7,8 +7,10 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
+
     file = {
       ".config/starship.toml".source = ./home/cli/starship.toml;
+
       ".config/vim" = {
         source = ./home/cli/vim;
         recursive = true;

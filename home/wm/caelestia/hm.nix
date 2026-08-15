@@ -21,6 +21,7 @@
 
     file = {
       ".config/wezterm/wezterm.lua".source = ../../gui/wezterm.lua;
+
       "Pictures/Wallpapers" = {
         source = ../../../media/wallpapers;
         recursive = true;
@@ -28,7 +29,6 @@
     };
 
     sessionVariables = {
-      EDITOR = "nvim";
       TERMINAL = "wezterm";
       XDG_TERMINAL_EMULATOR = "wezterm";
       XCURSOR_THEME = "Bibata-Modern-Ice";
