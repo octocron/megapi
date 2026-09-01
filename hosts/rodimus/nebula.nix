@@ -14,7 +14,15 @@
       port = 4242;
     };
 
-    staticHostMap = { };
+    lighthouses = [
+      "10.99.0.77"
+    ];
+
+    staticHostMap = {
+      "10.99.0.77" = [
+        "150.136.33.18:4242"
+      ];
+    };
 
     settings = {
       punchy = {

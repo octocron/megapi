@@ -1,8 +1,7 @@
 # INFO: Create a CA: nebula-cert ca -name "megaport" -duration 2400d -out-dir /etc/nebula
 # TODO: sudo chmod --reference /etc/nix /etc/nebula
 # TODO: sudo chmod --reference /etc/nix/nix.conf /etc/nebula/*
-{ hostname, ... }:
-{
+{ hostname, ... }: {
   services.nebula.networks.megaport = {
     enable = true;
     isLighthouse = true;
@@ -15,13 +14,15 @@
       port = 4242;
     };
 
-    staticHostMap = { }; # Lighthouses don't need map to other lighthouses
+    lighthouses = [
+      "10.99.0.77"
+    ];
 
-    # tun = {
-    #   disabled = false; # NOTE: when false, lighthouses can start w/o local tun (rootless)
-    #   device = "nebula1";
-    #   mtu = 1300; # 1300 is default internet traffic
-    # };
+    staticHostMap = {
+      "10.99.0.77" = [
+        "150.136.33.18:4242"
+      ];
+    };
 
     settings = {
       punchy = {
