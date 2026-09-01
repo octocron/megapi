@@ -11,6 +11,7 @@
     users = {
       "${username}" = {
         homeMode = "755";
+        uid = 1000;
         linger = true; # NOTE: for restarting services after reboot
         isNormalUser = true;
         description = "${gitUsername}";
@@ -21,6 +22,8 @@
           "video"
           "wheel"
         ];
+
+        #hashedPassword = ""; # NOTE: mkpasswd -m sha-512
         hashedPasswordFile = config.sops.secrets.passwordHash.path;
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7Nb8wXQWd9H69U6TzPoE1MJDzUbGZSwwJCaXBvzgdb megacron"
