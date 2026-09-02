@@ -11,7 +11,7 @@
     users = {
       "${username}" = {
         homeMode = "755";
-        uid = 1000;
+        #uid = 1000;
         linger = true; # NOTE: for restarting services after reboot
         isNormalUser = true;
         description = "${gitUsername}";
