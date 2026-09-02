@@ -15,6 +15,10 @@
           ];
         };
 
+        "ironhide" = {
+          hostname = "192.168.1.99";
+        };
+
         "lockdown" = {
           hostname = "192.168.1.130";
         };
@@ -25,6 +29,11 @@
 
         "rodimus" = {
           hostname = "192.168.10.38";
+        };
+
+        "scorponok" = {
+          hostname = "150.136.33.18";
+          user = "ubuntu";
         };
       };
     };
