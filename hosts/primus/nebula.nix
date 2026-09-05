@@ -18,6 +18,8 @@
       "10.99.0.77"
     ];
 
+    relays = [ "150.136.33.18" ];
+
     staticHostMap = {
       "10.99.0.77" = [
         "150.136.33.18:4242"
@@ -33,7 +35,7 @@
 
       relay = {
         am_relay = false;
-        use_relay = false;
+        use_relay = true;
       };
     };
 
