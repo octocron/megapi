@@ -35,7 +35,7 @@
 
       "homepage.megaport.cc" = {
         extraConfig = ''
-          reverse_proxy 127.0.0.1:8082
+          reverse_proxy 0.0.0.0:8082
         '';
       };
     };
