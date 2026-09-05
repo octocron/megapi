@@ -13,3 +13,5 @@ $TTL 3600
 primus    IN A  10.99.0.37
 homepage  IN A  10.99.0.37
 *         IN A  10.99.0.37
+
+satisfactory  IN A  10.99.0.99
