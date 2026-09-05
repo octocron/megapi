@@ -4,20 +4,20 @@
 { hostname, ... }: {
   services.nebula.networks.megaport = {
     enable = true;
-    isLighthouse = true;
     ca = "/etc/nebula/ca.crt";
     cert = "/etc/nebula/${hostname}.crt"; # lighthouse would be called hostname
     key = "/etc/nebula/${hostname}.key"; # <- sensitive!
 
-    listen = {
-      host = "0.0.0.0";
-      port = 4242;
-    };
+    isLighthouse = false;
 
     lighthouses = [
+      "10.99.0.77"
     ];
 
     staticHostMap = {
+      "10.99.0.77" = [
+        "150.136.33.18:4242"
+      ];
     };
 
     settings = {
