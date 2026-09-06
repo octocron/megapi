@@ -6,6 +6,7 @@
     ./disko.nix
     ./hardware.nix
     ./interfaces.nix
+    ./motd.nix
     ./nebula.nix
     ../../boot/pi5.nix
     ../../core
