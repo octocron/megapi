@@ -20,11 +20,6 @@
 
     components {
       command "hostname | figlet -f slant"
-
-      uptime prefix="Uptime"
-
-      load-avg format="Load: {one:.02} {five:.02} {fifteen:.02}"
-
       memory swap-pos="beside"
 
       filesystems {
@@ -33,10 +28,13 @@
 
       service-status {
         service display-name="Caddy" unit="caddy.service"
+        service display-name="Nebula" unit="nebula@megaport.service"
         service display-name="SSH" unit="sshd.service"
         service display-name="Unbound" unit="unbound.service"
       }
+      load-avg format="Load: {one:.02} {five:.02} {fifteen:.02}"
 
+      uptime prefix="Uptime"
       last-run
     }
   '';
