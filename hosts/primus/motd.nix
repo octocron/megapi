@@ -1,4 +1,9 @@
-{ pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}:
+{
   environment.systemPackages = [
     pkgs.rust-motd
   ];
@@ -40,6 +45,17 @@
   users.motdFile = "/etc/rust-motd";
 
   system.activationScripts.rust-motd = ''
-    ${pkgs.rust-motd}/bin/rust-motd /etc/rust-motd.kdl > /etc/rust-motd
+    PATH="${
+      lib.makeBinPath [
+        pkgs.bash
+        pkgs.systemd
+        pkgs.figlet
+        pkgs.inetutils
+      ]
+    }:$PATH"
+
+    ${pkgs.rust-motd}/bin/rust-motd \
+      /etc/rust-motd.kdl \
+      > /etc/rust-motd
   '';
 }
