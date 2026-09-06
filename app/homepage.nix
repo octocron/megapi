@@ -37,9 +37,9 @@
         ];
         "Services" = [
           {
-            "AdGuard Home" = {
-              description = "DNS manager";
-              #href = "https://adguard.megaport.cc";
+            "Satisfactory" = {
+              description = "Satisfactory - Let's Fixit";
+              href = "https://satisfactory.megaport.cc";
             };
           }
         ];
