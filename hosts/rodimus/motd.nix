@@ -1,8 +1,22 @@
 {
+  config,
   lib,
   pkgs,
   ...
 }:
+let
+  rustMotd = pkgs.writeShellScript "rust-motd-login" ''
+    export PATH="${
+      lib.makeBinPath [
+        pkgs.bash
+        pkgs.figlet
+        pkgs.inetutils
+      ]
+    }:$PATH"
+
+    exec ${pkgs.rust-motd}/bin/rust-motd /etc/rust-motd.kdl
+  '';
+in
 {
   environment.systemPackages = [
     pkgs.rust-motd
@@ -39,20 +53,19 @@
     }
   '';
 
-  users.motdFile = "/etc/rust-motd";
+  # NOTE: rust-motd is generated at SSH login
+  security.pam.services.sshd = {
+    showMotd = lib.mkForce false;
 
-  system.activationScripts.rust-motd = ''
-    PATH="${
-      lib.makeBinPath [
-        pkgs.bash
-        pkgs.systemd
-        pkgs.figlet
-        pkgs.inetutils
-      ]
-    }:$PATH"
-
-    ${pkgs.rust-motd}/bin/rust-motd \
-      /etc/rust-motd.kdl \
-      > /etc/rust-motd
-  '';
+    rules.session.rust-motd = {
+      enable = true;
+      order = 12300;
+      control = "optional";
+      modulePath = "${config.security.pam.package}/lib/security/pam_exec.so";
+      args = [
+        "stdout"
+        "${rustMotd}"
+      ];
+    };
+  };
 }
