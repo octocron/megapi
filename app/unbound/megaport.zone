@@ -14,4 +14,5 @@ primus    IN A  10.99.0.37
 homepage  IN A  10.99.0.37
 *         IN A  10.99.0.37
 
+hermes    IN A 192.168.1.99
 satisfactory  IN A  10.99.0.99
