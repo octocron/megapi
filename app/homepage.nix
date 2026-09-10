@@ -25,6 +25,25 @@
       }
     ];
 
+    bookmarks = [
+      {
+        Repos = [
+          {
+            Github = [
+              {
+                abbr = "GH";
+                href = "https://github.com/octocron";
+              }
+              {
+                abbr = "GL";
+                href = "https://gitlab.com/megacron";
+              }
+            ];
+          }
+        ];
+      }
+    ];
+
     services = [
       {
         "Media" = [
@@ -39,7 +58,7 @@
           {
             "Satisfactory" = {
               description = "Satisfactory - Let's Fixit";
-              href = "https://satisfactory.megaport.cc";
+              href = "https://sf.megaport.cc";
             };
           }
         ];
