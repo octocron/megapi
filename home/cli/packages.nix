@@ -14,6 +14,7 @@
     fd # Rust: ↑ find
     gnupg # C: gpg **
     gping # Rust: ↑ ping
+    hstr # C: better shell history (ctrl r)
     inxi # Bash: ↑ system info
     just # ↑ make
     lazydocker # Go: full docker mgmt app
