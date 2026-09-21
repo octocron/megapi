@@ -20,4 +20,12 @@ hermes    IN A  192.168.1.99
 immich    IN A  10.99.0.99
 jellyfin  IN A  10.99.0.99
 metube    IN A  10.99.0.99
+qbit      IN A  10.99.0.99
 sf        IN A  10.99.0.99
+
+bazaar    IN A  10.99.0.99
+lidaar    IN A  10.99.0.99
+prowlarr  IN A  10.99.0.99
+radarr    IN A  10.99.0.99
+sonarr    IN A  10.99.0.99
+seerr     IN A  10.99.0.99
