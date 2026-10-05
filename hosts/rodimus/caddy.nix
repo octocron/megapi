@@ -41,6 +41,7 @@
 
       "homelable.megaport.cc" = {
         extraConfig = ''
+          encode zstd gzip
           reverse_proxy 127.0.0.1:8480
         '';
       };

@@ -33,7 +33,7 @@
           environment = {
             SQLITE_PATH = "/app/data/homelab.db";
             UPLOAD_DIR = "/app/data/uploads";
-            CORS_ORIGINS = ''["http://127.0.0.1:8480","http://localhost:8480"]'';
+            CORS_ORIGINS = ''["https://homelable.megaport.cc/","http://127.0.0.1:8480","http://localhost:8480"]'';
             SCANNER_RANGES = ''["192.168.10.0/24"]'';
             STATUS_CHECKER_INTERVAL = "60";
           };
