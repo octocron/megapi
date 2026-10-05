@@ -33,11 +33,23 @@
         '';
       };
 
-      # "rodimus-cache.megaport.cc" = {
-      #   extraConfig = ''
-      #     reverse_proxy 127.0.0.1:5000
-      #   '';
-      # };
+      "grafana.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:3000
+        '';
+      };
+
+      "homelabel.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:8480
+        '';
+      };
+
+      "prometheus.megaport.cc" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:9090
+        '';
+      };
     };
   };
 

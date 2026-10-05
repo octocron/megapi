@@ -9,23 +9,37 @@ $TTL 3600
     3600       ; minimum
 )
 
-@         IN NS primus.megaport.cc.
-primus    IN A  10.99.0.37
-homepage  IN A  10.99.0.37
-*         IN A  10.99.0.37
+@           IN NS primus.megaport.cc.
+primus      IN A  10.99.0.37
+homepage    IN A  10.99.0.37
+*           IN A  10.99.0.37
 
-ollama    IN A  10.99.0.98
+blackout    IN A  10.99.0.150
+drift       IN A  10.99.0.152
+energon     IN A  10.99.0.98
+galvatron   IN A  10.99.0.40
+ironhide    IN A  10.99.0.99
+lockdown    IN A  10.99.0.44
+ratchet     IN A  10.99.0.151
+rodimus     IN A  10.99.0.38
+scorponok   IN A  10.99.0.77
 
-hermes    IN A  192.168.1.99
-immich    IN A  10.99.0.99
-jellyfin  IN A  10.99.0.99
-metube    IN A  10.99.0.99
-qbit      IN A  10.99.0.99
-sf        IN A  10.99.0.99
+grafana     IN A  10.99.0.38
+homelabel   IN A  10.99.0.38
+prometheus  IN A  10.99.0.38
 
-bazarr    IN A  10.99.0.99
-lidarr    IN A  10.99.0.99
-prowlarr  IN A  10.99.0.99
-radarr    IN A  10.99.0.99
-sonarr    IN A  10.99.0.99
-seerr     IN A  10.99.0.99
+ollama      IN A  10.99.0.98
+
+hermes      IN A  192.168.1.99
+immich      IN A  10.99.0.99
+jellyfin    IN A  10.99.0.99
+metube      IN A  10.99.0.99
+qbit        IN A  10.99.0.99
+sf          IN A  10.99.0.99
+
+bazarr      IN A  10.99.0.99
+lidarr      IN A  10.99.0.99
+prowlarr    IN A  10.99.0.99
+radarr      IN A  10.99.0.99
+sonarr      IN A  10.99.0.99
+seerr       IN A  10.99.0.99

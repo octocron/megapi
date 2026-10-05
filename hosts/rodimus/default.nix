@@ -11,6 +11,8 @@
     ../../boot/pi5.nix
     ../../core
     ../../users/megacron.nix
+    ../../containers/homelabel.nix
+    ../../containers/podman.nix
     ../../app/sops.nix
     ../../app/unbound
   ];
