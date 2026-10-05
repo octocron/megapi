@@ -32,9 +32,12 @@
       allowedTCPPorts = [
         53 # dns
         80 # http
+        443 # https
       ];
       allowedUDPPorts = [
         53 # dns
+        80 # http
+        443 # https
         4242 # lighthouse
       ];
 
