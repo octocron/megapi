@@ -31,6 +31,7 @@
       enable = true;
       allowedTCPPorts = [
         53 # dns
+        80 # http
       ];
       allowedUDPPorts = [
         53 # dns

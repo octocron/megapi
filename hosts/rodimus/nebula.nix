@@ -62,6 +62,12 @@
           host = "any";
         }
         {
+          # Allow HTTP
+          port = 80;
+          proto = "udp";
+          host = "any";
+        }
+        {
           # Allow HTTPS
           port = 443;
           proto = "tcp";
