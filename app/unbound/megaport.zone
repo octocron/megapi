@@ -25,7 +25,7 @@ rodimus     IN A  10.99.0.38
 scorponok   IN A  10.99.0.77
 
 grafana     IN A  10.99.0.38
-homelabel   IN A  10.99.0.38
+homelable   IN A  10.99.0.38
 prometheus  IN A  10.99.0.38
 
 ollama      IN A  10.99.0.98

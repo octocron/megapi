@@ -39,7 +39,7 @@
         '';
       };
 
-      "homelabel.megaport.cc" = {
+      "homelable.megaport.cc" = {
         extraConfig = ''
           reverse_proxy 127.0.0.1:8480
         '';
