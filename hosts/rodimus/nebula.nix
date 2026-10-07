@@ -79,6 +79,12 @@
           proto = "tcp";
           host = "any";
         }
+        {
+          # Allow Homelable
+          port = 8480;
+          proto = "tcp";
+          host = "any";
+        }
       ];
 
       # NOTE: Allow traffic FROM this node
