@@ -4,6 +4,8 @@
   ...
 }:
 {
+  networking.firewall.interfaces.podman0.allowedTCPPorts = [ 8481 ];
+
   systemd.tmpfiles.rules = [
     "d /var/lib/homelable 0750 root root -"
     "d /var/lib/homelable/uploads 0750 root root -"
