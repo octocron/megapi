@@ -29,15 +29,16 @@
             dns cloudflare {
               api_token {env.CLOUDFLARE_API_TOKEN}
             }
+            resolvers 1.1.1.1 1.0.0.1
           }
         '';
       };
 
-      "grafana.megaport.cc" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:3000
-        '';
-      };
+      # "grafana.megaport.cc" = {
+      #   extraConfig = ''
+      #     reverse_proxy 127.0.0.1:3000
+      #   '';
+      # };
 
       "homelable.megaport.cc" = {
         extraConfig = ''
@@ -46,11 +47,11 @@
         '';
       };
 
-      "prometheus.megaport.cc" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:9090
-        '';
-      };
+      # "prometheus.megaport.cc" = {
+      #   extraConfig = ''
+      #     reverse_proxy 127.0.0.1:9090
+      #   '';
+      # };
     };
   };
 

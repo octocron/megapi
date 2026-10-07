@@ -64,7 +64,7 @@
         {
           # Allow HTTP
           port = 80;
-          proto = "udp";
+          proto = "tcp";
           host = "any";
         }
         {
@@ -76,12 +76,6 @@
         {
           # Allow DNS over TLS
           port = 853;
-          proto = "tcp";
-          host = "any";
-        }
-        {
-          # Allow Homelable
-          port = 8480;
           proto = "tcp";
           host = "any";
         }
