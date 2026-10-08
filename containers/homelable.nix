@@ -88,7 +88,6 @@
         "network-online.target"
         "sops-install-secrets.service"
       ];
-      requires = [ "sops-install-secrets.service" ];
       serviceConfig = {
         Restart = "on-failure";
         RestartSec = "5s";
