@@ -46,6 +46,10 @@ in
         service display-name="SSH" unit="sshd.service"
         service display-name="Unbound" unit="unbound.service"
       }
+      docker title="Podman Services" socket="unix:///run/podman/podman.sock" {
+        container display-name="Homelable backend" docker-name="/homelable-backend"
+        container display-name="Homelable frontend" docker-name="/homelable-frontend"
+      }
       load-avg format="Load: {one:.02} {five:.02} {fifteen:.02}"
 
       uptime prefix="Uptime"

@@ -78,8 +78,28 @@
     };
   };
 
-  systemd.services.podman-homelable-backend = {
-    after = [ "sops-install-secrets.service" ];
-    wants = [ "sops-install-secrets.service" ];
+  systemd.services = {
+    podman-homelable-backend = {
+      after = [
+        "network-online.target"
+        "sops-install-secrets.service"
+      ];
+      wants = [
+        "network-online.target"
+        "sops-install-secrets.service"
+      ];
+      requires = [ "sops-install-secrets.service" ];
+      serviceConfig = {
+        Restart = "on-failure";
+        RestartSec = "5s";
+      };
+    };
+
+    podman-homelable-frontend = {
+      serviceConfig = {
+        Restart = "on-failure";
+        RestartSec = "5s";
+      };
+    };
   };
 }
