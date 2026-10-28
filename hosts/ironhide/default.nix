@@ -3,6 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 {
   config,
+  hostname,
   pkgs,
   ...
 }:
@@ -18,7 +19,7 @@
   };
 
   networking = {
-    hostName = "ironhide";
+    hostName = hostname;
     wireless = {
       enable = true;
       networks = {

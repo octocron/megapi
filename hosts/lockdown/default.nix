@@ -10,6 +10,7 @@
     ./disko.nix
     ./hardware.nix
     ./nebula.nix
+    ./networking.nix
 
     ../../app/sddm.nix
     ../../app/sops.nix
@@ -54,7 +55,6 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true;
-    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   services = {

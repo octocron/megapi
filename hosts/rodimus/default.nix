@@ -8,6 +8,7 @@
     ./interfaces.nix
     ./motd.nix
     ./nebula.nix
+    ./networking.nix
     ../../boot/pi5.nix
     ../../core
     ../../users/megacron.nix
