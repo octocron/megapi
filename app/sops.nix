@@ -13,6 +13,18 @@
         mode = "0400";
         neededForUsers = true;
       };
+
+      "passwordMultiplex" = {
+        owner = "root";
+        group = "root";
+        mode = "0400";
+      };
+
+      "passwordFBIvan009" = {
+        owner = "root";
+        group = "root";
+        mode = "0400";
+      };
     };
   };
 }
