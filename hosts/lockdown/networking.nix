@@ -7,24 +7,47 @@
   #-----------------NETWORKING------------------------#
   networking = {
     hostName = hostname; # INFO: Defines hostname
-    networkmanager.enable = true;
     nftables.enable = true;
 
-    wireless = {
-      iwd = {
-        enable = true;
-        settings = {
-          Network = {
-            EnableIPv6 = true;
-            RoutePriorityOffset = 300;
-            "Multiplex" = {
-              psk = config.sops.secrets.passwordMultiplex.path;
-            };
-            "FBIvan009" = {
-              psk = config.sops.secrets.passwordFBIvan009.path;
-            };
+    networkmanager = {
+      enable = true;
+      ensureProfiles.profiles = {
+        multiplex = {
+          connection = {
+            id = "Multiplex";
+            type = "wifi";
           };
-          Settings.AutoConnect = true;
+          ipv4 = {
+            method = "auto";
+            ignore-auto-dns = true;
+          };
+          wireless = {
+            ssid = "Multiplex";
+            mode = "infrastructure";
+          };
+          wireless-security = {
+            key-mgmt = "wpa-psk";
+            psk = config.sops.secrets.passwordMultiplex.path;
+          };
+        };
+
+        FBIvan009 = {
+          connection = {
+            id = "FBIvan009";
+            type = "wifi";
+          };
+          ipv4 = {
+            method = "auto";
+            ignore-auto-dns = true;
+          };
+          wireless = {
+            ssid = "FBIvan009";
+            mode = "infrastructure";
+          };
+          wireless-security = {
+            key-mgmt = "wpa-psk";
+            psk = config.sops.secrets.passwordFBIvan009.path;
+          };
         };
       };
     };
