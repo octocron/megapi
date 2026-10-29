@@ -11,44 +11,63 @@
 
     networkmanager = {
       enable = true;
-      ensureProfiles.profiles = {
-        multiplex = {
-          connection = {
-            id = "Multiplex";
-            type = "wifi";
+      ensureProfiles = {
+        profiles = {
+          multiplex = {
+            connection = {
+              autoconnect = true;
+              id = "Multiplex";
+              type = "wifi";
+            };
+            ipv4 = {
+              method = "auto";
+              ignore-auto-dns = true;
+            };
+            wifi = {
+              mode = "infrastructure";
+              ssid = "Multiplex";
+            };
+            wifi-security = {
+              key-mgmt = "wpa-psk";
+            };
           };
-          ipv4 = {
-            method = "auto";
-            ignore-auto-dns = true;
-          };
-          wireless = {
-            ssid = "Multiplex";
-            mode = "infrastructure";
-          };
-          wireless-security = {
-            key-mgmt = "wpa-psk";
-            psk = config.sops.secrets.passwordMultiplex.path;
+
+          FBIvan009 = {
+            connection = {
+              autoconnect = true;
+              id = "FBIvan009";
+              type = "wifi";
+            };
+            ipv4 = {
+              method = "auto";
+              ignore-auto-dns = true;
+            };
+            wifi = {
+              mode = "infrastructure";
+              ssid = "FBIvan009";
+            };
+            wifi-security = {
+              key-mgmt = "wpa-psk";
+            };
           };
         };
 
-        FBIvan009 = {
-          connection = {
-            id = "FBIvan009";
-            type = "wifi";
-          };
-          ipv4 = {
-            method = "auto";
-            ignore-auto-dns = true;
-          };
-          wireless = {
-            ssid = "FBIvan009";
-            mode = "infrastructure";
-          };
-          wireless-security = {
-            key-mgmt = "wpa-psk";
-            psk = config.sops.secrets.passwordFBIvan009.path;
-          };
-        };
+        secrets.entries = [
+          {
+            matchId = "Multiplex";
+            matchType = "wifi";
+            matchSetting = "wifi-security";
+            key = "psk";
+            file = config.sops.secrets.passwordMultiplex.path;
+          }
+          {
+            matchId = "FBIvan009";
+            matchType = "wifi";
+            matchSetting = "wifi-security";
+            key = "psk";
+            file = config.sops.secrets.passwordFBIvan009.path;
+          }
+        ];
       };
     };
 
